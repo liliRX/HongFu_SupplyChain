@@ -4,20 +4,21 @@ export const navList = [
     { name: "核心服务", id: "service" },
     { name: "我们的优势", id: "advantage" },
     { name: "联系我们", id: "linkUs" }     
-]
+];
 
 //定义动画字体的数据
+/* jshint esversion: 6 */
 export const aboutUs = [
     {num:"9", add:"年", info:"成立于2015年"},
     {num:"1000+", add:"", info:"客户"},
     {num:"200", add:"", info:"全国仓点"},
     {num:"500", add:"万M2", info:"仓库面积"},
-]
+];
 
 //定义核心服务的数据
 export const services = [
-    {url:"./assets/img/service-pic01", type:"干线运输"},
-    {url:"./assets/img/service-pic02", type:"电商云仓"},
-    {url:"./assets/img/service-pic03", type:"城市配送"},
-    {url:"./assets/img/service-pic04", type:"仓储物流"},
-]
+    {url:"src/assets/img/service-pic01.png", type:"干线运输"},
+    {url:"src/assets/img/service-pic02.png", type:"电商云仓"},
+    {url:"src/assets/img/service-pic03.png", type:"城市配送"},
+    {url:"src/assets/img/service-pic04.png", type:"仓储物流"},
+];
