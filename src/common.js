@@ -22,3 +22,10 @@ export const services = [
     {url:"src/assets/img/service-pic03.png", type:"城市配送"},
     {url:"src/assets/img/service-pic04.png", type:"仓储物流"},
 ];
+
+//define the data of advantage
+export const advantages = [
+    {url:"src/assets/img/adv01.png", id:adv01},
+    {url:"src/assets/img/adv02.png", id:adv02},
+    {url:"src/assets/img/adv03.png", id:adv03},
+]

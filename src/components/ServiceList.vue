@@ -7,8 +7,6 @@
 
 <script setup>
 const { data } = defineProps(['data']);
-
-
 </script>
 
 <style lang="scss">
