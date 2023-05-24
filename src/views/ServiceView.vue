@@ -1,14 +1,12 @@
 <script setup>
 import ServiceList from '../components/ServiceList.vue'
 import { services } from "../common.js";
+import SecondTitle from "../components/SecondTitle.vue";
 </script>
 
 <template>
     <div class="service-container">
-        <div class="text">
-            <h2>核心服务</h2>
-            <p>—— Services ——</p>
-        </div>
+        <SecondTitle chinese-title="核心服务" english-title="Service"/>
         <div class="service-list">
             <ServiceList v-for="item in services" :key="item.url" :data="item" />
         </div>

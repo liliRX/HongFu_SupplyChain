@@ -1,44 +1,35 @@
-<script>
-
+<script setup>
+import { advantages } from '../common.js'
+import SecondTitle from "../components/SecondTitle.vue";
 </script>
 
 <template>
     <div class="adv-wrapper">
-        <h2>我们的优势</h2>
-        <p>—— Advantage ——</p>
-        <section>
-            <div class="adv-img"></div>
-            <div class="adv-img"></div>
-            <div class="adv-img"></div>
+        <SecondTitle
+            chinese-title="我们的优势"
+            english-title="Advantage"
+        />
+
+
+        <section class="adv-img">
+            <img
+                v-for="item in advantages"
+                :key="item.url"
+                :src="item.url"
+                :alt="item.description" />
         </section>
+
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .adv-wrapper {
-    margin: 50px auto 30px auto;
+    border: 2px red solid;
+    margin: 100px auto 30px;
 
-    >p {
-        color: #0B83DB;
+    >section.adv-img {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
     }
-
-    >section {
-        border: red 2px solid;
-        width: 60%;
-        display: flex;
-        background: transparent;
-        justify-content: space-between;
-
-        padding: 20px 0 40px 0;
-
-        >.adv-img {
-            box-shadow: 0 1px 4px 0 rgb(165, 166, 167);
-            width: calc(33.3% - 20px);
-            height: 15rem;
-
-            &+& {
-                margin-right: 10px;
-            }
-        }
-    }
-}</style>
+}
+</style>
