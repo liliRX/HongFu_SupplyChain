@@ -20,8 +20,8 @@ import SecondTitle  from "../components/SecondTitle.vue";
 <style lang="scss" scoped>
 .about-container {
     margin-top: 60px;
+
     >.about_us {
-        margin-top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;

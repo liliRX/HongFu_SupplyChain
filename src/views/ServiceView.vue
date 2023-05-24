@@ -26,7 +26,6 @@ import SecondTitle from "../components/SecondTitle.vue";
     }
 
     >.service-list {
-        padding-top: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: atuo atuo;
