@@ -28,8 +28,8 @@ import SecondTitle from "../components/SecondTitle.vue";
     >.service-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: atuo atuo;
-        grid-gap: 20px 10px;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 20px;
     }
 }
 </style>
