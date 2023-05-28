@@ -10,6 +10,7 @@ import FooterView from './views/FooterView.vue';
 </script>
 
 <template>
+    这是我的代码
     <div class="layout">
         <HeaderView></HeaderView>
         <SwiperSlide></SwiperSlide>
