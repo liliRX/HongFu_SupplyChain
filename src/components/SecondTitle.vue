@@ -1,15 +1,15 @@
 <script setup>
-const {englishTitle, chineseTitle} = defineProps([
-    "englishTitle",
-    "chineseTitle"
+const { englishTitle, chineseTitle } = defineProps([
+  "englishTitle",
+  "chineseTitle"
 ]);
 </script>
 
 <template>
-    <div class="sub-title">
-        <h2> {{ chineseTitle }} </h2>
-        <p>—— {{ englishTitle }} ——</p>
-    </div>
+  <div class="sub-title">
+    <h2>{{ chineseTitle }}</h2>
+    <p>—— {{ englishTitle }} ——</p>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -18,7 +18,7 @@ const {englishTitle, chineseTitle} = defineProps([
   margin-bottom: 20px;
 
   > p {
-    color: #0B83DB;
+    color: #0b83db;
     font-size: 20px;
   }
 }
