@@ -25,7 +25,7 @@ export const services = [
 
 //define the data of advantage
 export const advantages = [
-    {url:"src/assets/img/adv01.png", id:adv01},
-    {url:"src/assets/img/adv02.png", id:adv02},
-    {url:"src/assets/img/adv03.png", id:adv03},
-]
+    {url:"src/assets/img/test01.png", description:"advantage 1"},
+    {url:"src/assets/img/test02.png", description:"advantage 2"},
+    {url:"src/assets/img/test03.png", description:"advantage 3"},
+];

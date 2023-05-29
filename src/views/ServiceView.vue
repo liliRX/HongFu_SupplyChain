@@ -15,7 +15,7 @@ import SecondTitle from "../components/SecondTitle.vue";
 
 <style lang="scss" scoped>
 .service-container {
-    margin-top: 100px;
+    margin-top: 80px;
 
     >.text {
         text-align: center;

@@ -22,51 +22,61 @@
                     </li>
                 </ol>
             </div>
-            <div class="map-img">
-                <img src="../assets/img/map.png" alt="公司地址图">
+            <div class="map">
+                <a class="map-link"
+                   href="https://map.baidu.com/search/%E7%BA%B3%E7%88%B1%E6%96%AF%E9%9B%86%E5%9B%A2/@13382334.69519193,3506954.2200398105,18.38z?querytype=s&da_src=shareurl&wd=%E7%BA%B3%E7%88%B1%E6%96%AF%E9%9B%86%E5%9B%A2&c=179&src=0&wd2=%E6%9D%AD%E5%B7%9E%E5%B8%82%E6%BB%A8%E6%B1%9F%E5%8C%BA&pn=0&sug=1&l=12&b=(13341719.691775372,3503734.6670553014;13418705.601388173,3547627.328022044)&from=webmap&biz_forward=%7B%22scaler%22:2,%22styles%22:%22pl%22%7D&sug_forward=6b659b95c5d6838ebbbd6371&device_ratio=2">
+                    <img src="../assets/img/nice-map.png" alt="点击跳转地图">
+                </a>
             </div>
-            
+
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 $color: white;
-
 .link_container {
-    border: red 2px solid;
-    background-color: green;
-    color: $color;
-    padding: 30px 100px 20px 100px;
+  margin-top: 50px;
+  background: #6c9ccb url("src/assets/img/airplane-blur.jpg") no-repeat center;
+  background-size: contain;
+  color: $color;
+  padding: 20px 100px 20px 100px;
 
-    >div.flex-box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  > div.flex-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        img {
-            width: 400px;
-            border: red solid 2px;
+    > h2 {
+      color: $color;
+    }
+
+    > .map {
+      width: 40%;
+    }
+
+    ol {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+
+      li {
+        > i.iconfont {
+          font-size: 30px;
+          vertical-align: middle;
+          margin-right: 5px;
         }
 
-        ol {
-            display: flex;
-            flex-direction: column;
-            // vertical-align: baseline;
-            align-self: center;
-
-            li {
-                .iconfont {
-                    font-size: 32px;
-
-                }
-            }
-
+        > span {
+          font-size: 18px;
         }
+      }
 
     }
 
-    >h2 {
-        color: $color;
-    }
-}</style>
+  }
+}
+
+
+</style>
