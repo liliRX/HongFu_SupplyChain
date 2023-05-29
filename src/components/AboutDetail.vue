@@ -1,24 +1,23 @@
 <script setup>
-import {aboutUs} from '../common.js';
-// 动画 animate.css
-import animate from "animate.css";
+import { aboutUs } from "../utils/common.js";
 </script>
 
 <template>
-    <div v-for="item in aboutUs" class="about-wrapper">
-        <div class="number animate__animated animate__headShake
-                    animate__delay-1s animate__slow animate__repeat-2">
-            <span class="big-font">
-                {{ item.num }}
-            </span>
-            <span class="add-info">
-                {{ item.add }}
-            </span>
-        </div>
-        <div class="num-comment">
-            {{ item.info }}
-        </div>
+  <div v-for="item in aboutUs" class="about-wrapper">
+    <div
+      class="number animate__animated animate__headShake animate__delay-1s animate__slow animate__repeat-2"
+    >
+      <span class="big-font">
+        {{ item.num }}
+      </span>
+      <span class="add-info">
+        {{ item.add }}
+      </span>
     </div>
+    <div class="num-comment">
+      {{ item.info }}
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -32,7 +31,7 @@ import animate from "animate.css";
 
     > .big-font {
       font-size: 40px;
-      color: #0B83DB;
+      color: #0b83db;
       font-style: italic;
       font-weight: 500;
     }

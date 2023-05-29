@@ -1,4 +1,5 @@
 <template>
+  <LinkUsView />
   <footer>
     <div>版权所有©️ 物流管理公司</div>
     <div>备案号： 浙ICP备********号</div>
@@ -19,3 +20,10 @@ footer {
   }
 }
 </style>
+<script>
+import LinkUsView from "@/views/LinkUsView.vue";
+
+export default {
+  components: { LinkUsView }
+};
+</script>
