@@ -1,52 +1,63 @@
-<script setup></script>
+<script setup>
+import hongFu_logo from "@/assets/img/hongfulogo.png";
+</script>
 
 <template>
-  <header>
-    <div class="hf-logo">
-      <span><img src="/hongfu.png" alt="" /></span>
-      <div>
-        <h1>鸿福供应链</h1>
-        <p>HONGFU SUPPLY CHAIN</p>
+  <header class="header">
+    <div class="out-body">
+      <div class="body">
+        <div class="header_container">
+          <img class="hf-logo" :src="hongFu_logo" alt="" />
+          <ol class="nav">
+            <li>首页</li>
+            <li>关于我们</li>
+            <li>核心服务</li>
+            <li>我们的优势</li>
+            <li>联系我们</li>
+          </ol>
+        </div>
       </div>
     </div>
-    <ol class="nav">
-      <li>首页</li>
-      <li>
-        关于我们
-        <ul>
-          <li>干线运输</li>
-          <li>电商云仓</li>
-          <li>城市配送</li>
-          <li>仓储物流</li>
-        </ul>
-      </li>
-      <li>核心服务</li>
-      <li>我们的优势</li>
-      <li>联系我们</li>
-    </ol>
   </header>
 </template>
 
 <style lang="scss" scoped>
-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 40px 0 30px;
-  .hf-logo {
-    display: flex;
+.header {
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  top: 0;
+
+  .body {
+    width: 1584px;
+    transform-origin: top left;
   }
-  .nav {
+
+  .out-body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .header_container {
     display: flex;
-    > li {
-      margin-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 30px;
 
-      > ul {
-        display: none;
-      }
+    .hf-logo {
+      display: flex;
+      width: 260px;
+    }
 
-      &:hover > ul {
-        display: block;
+    .nav {
+      display: flex;
+      margin-right: 80px;
+
+      > li {
+        font-size: 21px;
+        cursor: pointer;
+        margin-left: 80px;
       }
     }
   }

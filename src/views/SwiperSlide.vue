@@ -1,29 +1,24 @@
 <template>
-  <div class="swiper-container">
-    <swiper
-      :slidesPerView="1"
-      :spaceBetween="30"
-      :loop="true"
-      :centeredSlides="true"
-      :pagination="{
-        clickable: true
-      }"
-      :autoplay="{
-        delay: 2500,
-        disableOnInteraction: false
-      }"
-      :navigation="true"
-      :modules="modules"
-      class="mySwiper"
-    >
-      <swiper-slide
-        ><img class="swiper-pic" src="../assets/img/swiper_pic01.jpg" alt=""
-      /></swiper-slide>
-      <swiper-slide
-        ><img src="../assets/img/swiper_pic02.jpg" alt=""
-      /></swiper-slide>
-    </swiper>
-  </div>
+  <swiper
+    :slidesPerView="1"
+    :spaceBetween="30"
+    :loop="true"
+    :centeredSlides="true"
+    :pagination="{
+      clickable: true
+    }"
+    :autoplay="{
+      delay: 2500,
+      disableOnInteraction: false
+    }"
+    :navigation="true"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide :key="`src_${index}`" v-for="(slide, index) in swiperSlides">
+      <img class="slide_img" :src="slide.src" alt="" />
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script setup>
@@ -32,56 +27,57 @@ import { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+import service_slide1 from "@/assets/img/service-pic01.png";
+import service_slide2 from "@/assets/img/service-pic02.png";
+import service_slide3 from "@/assets/img/service-pic03.png";
+
 const modules = [Autoplay, Pagination, Navigation, A11y];
+
+const swiperSlides = [
+  { src: service_slide1 },
+  { src: service_slide2 },
+  { src: service_slide3 }
+];
 </script>
 
 <style lang="scss">
 $color: rgb(43, 121, 237);
 
-.swiper-container {
-  width: 100%;
-  height: 100%;
+.mySwiper {
+  height: 760px;
 
-  > .swiper-slide {
-    text-align: center;
-    font-size: 16px;
-    background: #fff;
+  .slide_img {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+  .swiper-slide {
+    position: relative;
 
-    > img {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-    }
-
-    > .swiper-pic {
-      transform: scaleY(180deg);
+      background-color: rgba(41, 128, 227, 0.5);
     }
   }
 }
 
-//修改分页器圆点颜色
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: $color;
+.swiper-pagination {
+  bottom: 40px !important;
 }
 
 //修改分页器圆点大小
 .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
+  margin: 0 13px !important;
   background-color: #fff;
 }
 

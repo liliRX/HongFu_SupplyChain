@@ -3,17 +3,20 @@ import { useScaleStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 
 // 用scale做缩放比例
-export function setRate(contianer = [".body", ".out-body"]) {
-  const body = document.querySelector(contianer[0]);
-  const out_body = document.querySelector(contianer[1]);
+export function setRate(contianer = ".body") {
+  const bodys = document.querySelectorAll(contianer);
   const { rate } = storeToRefs(useScaleStore());
-  body.style.transform = `scale(${rate.value})`;
-  body.style.msTransform = `scale(${rate.value})`;
-  body.style.mozTransform = `scale(${rate.value})`;
-  body.style.webkitTransform = `scale(${rate.value})`;
-  body.style.oTransform = `scale(${rate.value})`;
-  let bodyHeight = body.offsetHeight * rate.value;
-  out_body.style.height = bodyHeight + "px";
+
+  bodys.forEach((body) => {
+    const out_body = body.parentNode;
+    body.style.transform = `scale(${rate.value})`;
+    body.style.msTransform = `scale(${rate.value})`;
+    body.style.mozTransform = `scale(${rate.value})`;
+    body.style.webkitTransform = `scale(${rate.value})`;
+    body.style.oTransform = `scale(${rate.value})`;
+    let bodyHeight = body.offsetHeight * rate.value;
+    out_body.style.height = bodyHeight + "px";
+  });
 }
 
 // 防抖
