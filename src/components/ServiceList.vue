@@ -10,25 +10,33 @@ const { data } = defineProps(["data"]);
 </script>
 
 <style lang="scss">
+@import "@/assets/font.scss";
+
 .wrapper {
-  // border: blue solid 2px;
+  height: 380px;
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
+
   > img {
-    border: none;
     width: 100%;
+    height: 100%;
     vertical-align: middle;
   }
+
   > div {
+    font-family: Alibaba;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 30%;
-    font-size: 28px;
-    line-height: 3;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-align: center;
+    height: 140px;
+    font-size: 38px;
+    letter-spacing: 10px;
     color: white;
     background-color: rgb(8, 147, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

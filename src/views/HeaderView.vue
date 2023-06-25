@@ -43,7 +43,9 @@ import hongFu_logo from "@/assets/img/hongfulogo.png";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 13px 30px;
+    padding: 10px 0;
+    width: 1300px;
+    margin: auto;
 
     .hf-logo {
       display: flex;

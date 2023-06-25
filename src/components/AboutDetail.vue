@@ -1,5 +1,9 @@
 <script setup>
 import { aboutUs } from "../utils/common.js";
+
+const theFormat = (number) => {
+  return number > 1000 ? "1000+" : Math.round(number);
+};
 </script>
 
 <template>
@@ -8,7 +12,14 @@ import { aboutUs } from "../utils/common.js";
       class="number animate__animated animate__headShake animate__delay-1s animate__slow animate__repeat-2"
     >
       <span class="big-font">
-        {{ item.num }}
+        <number
+          ref="number1"
+          :from="0"
+          :to="item.num"
+          :format="theFormat"
+          :duration="2"
+          easing="Power1.easeOut"
+        />
       </span>
       <span class="add-info">
         {{ item.add }}
@@ -21,30 +32,32 @@ import { aboutUs } from "../utils/common.js";
 </template>
 
 <style scoped lang="scss">
-.about-wrapper {
-  padding: 60px 10px 0 10px;
+@import url(@/assets/font.scss);
 
+.about-wrapper {
   > .number {
     display: flex;
-    align-self: flex-start;
+    align-items: center;
     justify-content: center;
 
     > .big-font {
-      font-size: 40px;
+      font-family: Oblique;
+      font-size: 50px;
       color: #0b83db;
       font-style: italic;
-      font-weight: 500;
+      font-weight: bold;
     }
 
     > .add-info {
       color: gray;
-      margin-left: 5px;
+      margin-left: 15px;
     }
   }
 
   > .num-comment {
     text-align: center;
     margin-top: 10px;
+    font-size: 18px;
   }
 }
 </style>

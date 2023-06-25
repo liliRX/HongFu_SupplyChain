@@ -1,11 +1,10 @@
 <script setup>
-import SecondTitle from "../components/SecondTitle.vue";
 import AboutDetail from "../components/AboutDetail.vue";
 </script>
 
 <template>
   <div class="about-container">
-    <SecondTitle chinese-title="关于我们" english-title="About us" />
+    <h2 class="title">关于我们</h2>
     <div class="about_us">
       <img src="../assets/img/swiper_pic02.jpg" alt="" />
       <p class="text">
@@ -23,27 +22,47 @@ import AboutDetail from "../components/AboutDetail.vue";
 .about-container {
   margin-top: 80px;
 
+  .title {
+    margin-bottom: 30px;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 36px;
+      height: 3px;
+      background-color: rgba(0, 153, 255, 1);
+    }
+  }
+
   > .about_us {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 500px 1fr;
 
     > img {
-      width: 50%;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
     }
 
     > .text {
+      padding: 20px 0;
+      font-size: 18px;
       margin-left: 40px;
       text-indent: 2em;
-      line-height: 4rem;
-      letter-spacing: 2px;
+      line-height: 40px;
+      letter-spacing: 4px;
     }
   }
 
   > .animate {
+    padding: 90px 0 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    background-image: url("@/assets/img/about_num_bg.png");
+    background-position: right 37%;
+    background-repeat: no-repeat;
+    background-size: 38%;
   }
 }
 </style>

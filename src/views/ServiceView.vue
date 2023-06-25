@@ -15,7 +15,8 @@ import SecondTitle from "../components/SecondTitle.vue";
 
 <style lang="scss" scoped>
 .service-container {
-  margin-top: 80px;
+  padding: 0 50px;
+  margin-top: 30px;
 
   > .text {
     text-align: center;
@@ -29,7 +30,8 @@ import SecondTitle from "../components/SecondTitle.vue";
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 20px;
+    grid-column-gap: 15px;
+    grid-row-gap: 20px;
   }
 }
 </style>

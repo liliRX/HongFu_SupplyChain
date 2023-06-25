@@ -11,7 +11,7 @@
       delay: 2500,
       disableOnInteraction: false
     }"
-    :navigation="true"
+    :navigation="false"
     :modules="modules"
     class="mySwiper"
   >
@@ -70,7 +70,7 @@ $color: rgb(43, 121, 237);
 }
 
 .swiper-pagination {
-  bottom: 40px !important;
+  bottom: 50px !important;
 }
 
 //修改分页器圆点大小
