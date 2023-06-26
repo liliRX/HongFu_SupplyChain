@@ -1,27 +1,32 @@
 <template>
-  <swiper
-    :slidesPerView="1"
-    :loop="true"
-    :centeredSlides="true"
-    :pagination="{
-      clickable: true
-    }"
-    :autoplay="{
-      delay: 2500,
-      disableOnInteraction: false
-    }"
-    :navigation="false"
-    :modules="modules"
-    class="mySwiper"
-  >
-    <swiper-slide :key="`src_${index}`" v-for="(slide, index) in swiperSlides">
-      <img class="slide_img" :src="slide.src" alt="" />
-      <div class="swiper_title">
-        <div>发展源于<span>创造价值</span></div>
-        <div>为客户降本增效是公司发展的驱动力</div>
-      </div>
-    </swiper-slide>
-  </swiper>
+  <div id="home">
+    <swiper
+      :slidesPerView="1"
+      :loop="true"
+      :centeredSlides="true"
+      :pagination="{
+        clickable: true
+      }"
+      :autoplay="{
+        delay: 2500,
+        disableOnInteraction: false
+      }"
+      :navigation="false"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide
+        :key="`src_${index}`"
+        v-for="(slide, index) in swiperSlides"
+      >
+        <img class="slide_img" :src="slide.src" alt="" />
+        <div class="swiper_title">
+          <div>发展源于<span>创造价值</span></div>
+          <div>为客户降本增效是公司发展的驱动力</div>
+        </div>
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script setup>

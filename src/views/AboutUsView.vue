@@ -3,7 +3,7 @@ import AboutDetail from "../components/AboutDetail.vue";
 </script>
 
 <template>
-  <div class="about-container">
+  <div class="about-container" id="aboutUs">
     <h2 class="title">关于我们</h2>
     <div class="about_us">
       <img src="../assets/img/swiper_pic02.jpg" alt="" />

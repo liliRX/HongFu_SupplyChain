@@ -11,3 +11,12 @@ export const useScaleStore = defineStore("scaleRate", {
     }
   }
 });
+
+export const usePositionStore = defineStore("idPosition", {
+  state: () => ({ positionMap: {} }),
+  actions: {
+    setPosition(e) {
+      this.positionMap = e;
+    }
+  }
+});

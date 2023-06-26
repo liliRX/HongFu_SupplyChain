@@ -4,7 +4,7 @@ import SecondTitle from "../components/SecondTitle.vue";
 </script>
 
 <template>
-  <div class="adv-wrapper">
+  <div class="adv-wrapper" id="Advantage">
     <div></div>
     <main>
       <SecondTitle chinese-title="我们的优势" english-title="Advantage" />

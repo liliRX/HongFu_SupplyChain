@@ -1,6 +1,12 @@
 <template>
   <template v-if="!isMobile">
-    <HeaderView />
+    <header class="header_container">
+      <div class="out-body">
+        <div class="body">
+          <HeaderView />
+        </div>
+      </div>
+    </header>
     <div class="out-body">
       <div class="body">
         <Layout />
@@ -16,14 +22,17 @@
 <script setup>
 import Layout from "@/layout/LayoutView.vue";
 import { onBeforeMount, onMounted, onUnmounted, ref } from "vue";
-import { setRate } from "@/utils/utils.js";
-import { useScaleStore } from "@/store/scalerate_store.js";
+import { setRate, sumBeforeIndex } from "@/utils/utils.js";
+import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 import HeaderView from "@/views/HeaderView.vue";
+import { routeMap } from "@/utils/common.js";
 
 const store = useScaleStore();
+const positionStore = usePositionStore();
 const { isMobile } = storeToRefs(store);
 const { setScaleRate, setIsMobile } = store;
+const { setPosition } = positionStore;
 
 const regularSetTimer = ref(null);
 
@@ -42,11 +51,28 @@ const searchEquipment = () => {
   }
 };
 
+// 计算位置
+const calculatePosition = () => {
+  const heightMap = routeMap.reduce((pre, i) => {
+    let height = document
+      .querySelector(`#${i.route}`)
+      .getBoundingClientRect().height;
+    pre.push(Math.round(height));
+    return pre;
+  }, []);
+  const positionMap = routeMap.reduce((pre, i, currentIndex) => {
+    pre[i.route] = sumBeforeIndex(heightMap, currentIndex);
+    return pre;
+  }, {});
+  setPosition(positionMap);
+};
+
 onMounted(() => {
   setScaleRate(document.body.clientWidth / 1584);
 
-  regularSetTimer.value = setInterval(function () {
-    setRate();
+  regularSetTimer.value = setInterval(async () => {
+    await setRate();
+    calculatePosition();
   }, 300);
 
   window.addEventListener("resize", function () {
@@ -61,6 +87,14 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.header_container {
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  top: 0;
+}
+
 .body {
   width: 1584px;
   transform-origin: top left;

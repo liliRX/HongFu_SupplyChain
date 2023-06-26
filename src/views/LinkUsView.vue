@@ -1,5 +1,5 @@
 <template>
-  <div class="link_container">
+  <div class="link_container" id="linkUs">
     <div class="flex-box media_container">
       <div class="text">
         <h2>联系我们</h2>

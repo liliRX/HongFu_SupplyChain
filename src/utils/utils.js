@@ -49,3 +49,12 @@ export const goNewPage = (path, params = {}) => {
   a.setAttribute("target", "_blank");
   a.click();
 };
+
+// 累加
+export function sumBeforeIndex(arr, index) {
+  if (index >= arr.length || index < 0) {
+    return null; // 索引超出数组长度或者为负数，返回 null 或者其他你认为合适的值
+  } else {
+    return arr.slice(0, index).reduce((acc, curr) => acc + curr, 0);
+  }
+}

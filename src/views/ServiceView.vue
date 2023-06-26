@@ -5,7 +5,7 @@ import SecondTitle from "../components/SecondTitle.vue";
 </script>
 
 <template>
-  <div class="service-container">
+  <div class="service-container" id="centerServices">
     <SecondTitle chinese-title="核心服务" english-title="Service" />
     <div class="service-list">
       <ServiceList v-for="item in services" :key="item.url" :data="item" />

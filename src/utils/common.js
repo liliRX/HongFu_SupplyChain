@@ -29,3 +29,15 @@ export const advantages = [
   { url: "src/assets/img/test02.png", description: "advantage 2" },
   { url: "src/assets/img/test03.png", description: "advantage 3" }
 ];
+
+// 路由的地址
+export const routeMap = [
+  { route: "home", title: "首页" },
+  { route: "aboutUs", title: "关于我们" },
+  {
+    route: "centerServices",
+    title: "核心服务"
+  },
+  { route: "Advantage", title: "我们的优势" },
+  { route: "linkUs", title: "联系我们" }
+];
