@@ -3,26 +3,25 @@ import hongFu_logo from "@/assets/img/hongfulogo.png";
 import { onMounted, onUnmounted, ref } from "vue";
 import { debounce, goNewPage } from "@/utils/utils.js";
 import { routeMap } from "@/utils/common.js";
-import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
+import { usePositionStore, useScaleStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 
 const store = useScaleStore();
 const positionStore = usePositionStore();
 const { rate, isMobile } = storeToRefs(store);
 const { positionMap } = storeToRefs(positionStore);
+const activeLi = ref("home");
 
 const move = debounce(() => {
-  const scrollY = window.scrollY / rate.value;
-  // const positionTop = id.map((e) => {
-  //   return { name: e, Y: document.querySelector(`#${e}`).offsetTop };
-  // });
-  // let newActive;
-  // positionTop.forEach((e) => {
-  //   if (e.Y - scrollY - 400 <= 0) {
-  //     newActive = e.name;
-  //   }
-  // });
-  // activeLi.value = newActive;
+  const scrollY = window.scrollY;
+  const position = Object.keys(positionMap.value);
+  for (let i = 0; i < position.length; i++) {
+    console.log(100 * rate.value);
+    if (positionMap.value[position[i]] - scrollY >= 0) {
+      activeLi.value = position[i];
+      break;
+    }
+  }
 }, 100);
 
 const goModule = (id) => {
@@ -59,6 +58,10 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.active {
+  border-bottom: 3px solid red;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -76,6 +79,7 @@ onUnmounted(() => {
     display: flex;
 
     > li {
+      padding-bottom: 3px;
       font-size: 21px;
       cursor: pointer;
       margin-left: 80px;

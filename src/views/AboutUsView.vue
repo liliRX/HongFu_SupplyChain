@@ -19,7 +19,7 @@ import AboutDetail from "../components/AboutDetail.vue";
 
 <style lang="scss" scoped>
 .about-container {
-  margin-top: 80px;
+  margin-top: 100px;
 
   .title {
     margin-bottom: 30px;

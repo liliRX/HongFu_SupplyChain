@@ -34,8 +34,6 @@ const { isMobile } = storeToRefs(store);
 const { setScaleRate, setIsMobile } = store;
 const { setPosition } = positionStore;
 
-const regularSetTimer = ref(null);
-
 onBeforeMount(() => {
   searchEquipment();
 });
@@ -67,22 +65,22 @@ const calculatePosition = () => {
   setPosition(positionMap);
 };
 
-onMounted(() => {
+// 设置缩放比
+const setScale = () => {
   setScaleRate(document.body.clientWidth / 1584);
-
-  regularSetTimer.value = setInterval(async () => {
-    await setRate();
+  setTimeout(() => {
+    setRate();
     calculatePosition();
-  }, 300);
+  }, 200);
+};
+
+onMounted(() => {
+  setScale();
 
   window.addEventListener("resize", function () {
     searchEquipment();
-    setScaleRate(document.body.clientWidth / 1584);
+    setScale();
   });
-});
-
-onUnmounted(() => {
-  clearInterval(regularSetTimer.value);
 });
 </script>
 

@@ -17,6 +17,7 @@ import SecondTitle from "../components/SecondTitle.vue";
 .service-container {
   padding: 0 50px;
   margin-top: 30px;
+  margin-bottom: 80px;
 
   > .text {
     text-align: center;
