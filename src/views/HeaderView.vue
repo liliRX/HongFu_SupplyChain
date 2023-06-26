@@ -54,7 +54,6 @@ import hongFu_logo from "@/assets/img/hongfulogo.png";
 
     .nav {
       display: flex;
-      margin-right: 80px;
 
       > li {
         font-size: 21px;

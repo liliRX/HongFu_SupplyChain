@@ -12,6 +12,8 @@ const { data } = defineProps(["data"]);
 <style lang="scss">
 @import "@/assets/font.scss";
 
+$bgColor: #fb3434;
+
 .wrapper {
   height: 380px;
   border-radius: 8px;
@@ -25,6 +27,13 @@ const { data } = defineProps(["data"]);
   }
 
   > div {
+    background-image: repeating-linear-gradient(
+      60deg,
+      $bgColor,
+      $bgColor 10px,
+      transparent 0,
+      transparent 40px
+    );
     font-family: Alibaba;
     position: absolute;
     bottom: 0;
@@ -33,7 +42,7 @@ const { data } = defineProps(["data"]);
     font-size: 38px;
     letter-spacing: 10px;
     color: white;
-    background-color: rgb(8, 147, 240);
+    background-color: rgb(252, 18, 18);
     display: flex;
     justify-content: center;
     align-items: center;

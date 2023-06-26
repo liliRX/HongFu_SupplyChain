@@ -1,4 +1,5 @@
 <template>
+  <!--  <Map />-->
   <SwiperSlide />
   <div class="media_container">
     <AboutUsView />
@@ -14,6 +15,7 @@ import AboutUsView from "@/views/AboutUsView.vue";
 import ServiceView from "@/views/ServiceView.vue";
 import AdvantageView from "@/views/AdvantageView.vue";
 import FooterView from "@/views/FooterView.vue";
+import Map from "@/components/Map.vue";
 </script>
 
 <style lang="scss" scoped>

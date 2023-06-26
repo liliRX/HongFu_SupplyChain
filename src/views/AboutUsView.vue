@@ -8,8 +8,7 @@ import AboutDetail from "../components/AboutDetail.vue";
     <div class="about_us">
       <img src="../assets/img/swiper_pic02.jpg" alt="" />
       <p class="text">
-        物流公司有多台面包车、大小货车可门对门服务，在成都，广州、上海，苏州，北京，武汉全国各地都有网点。拥有先进的仓储
-        管理系统，规范的进出仓库流程，保证您的货物能够安全到达，依托鸿福可为您提供快速准。
+        鸿福物流成立于2014年，公司总部位于浙江丽水，目前已在河南、山东开设分公司。公司始终坚持客户至上的服务理念，是一家现代化综合型物流企业，拥有自营车辆近百辆，自成立之初便与国内日化龙头企业纳爱斯集团建立了重要战略合作关系。同时社会各知名品牌物流公司诸如德邦、跨越、安能等均有战略合作，可调动社会物流资源丰富。
       </p>
     </div>
     <div class="animate">
@@ -30,7 +29,7 @@ import AboutDetail from "../components/AboutDetail.vue";
       content: "";
       width: 36px;
       height: 3px;
-      background-color: rgba(0, 153, 255, 1);
+      background-color: rgba(252, 18, 18, 1);
     }
   }
 
@@ -45,7 +44,6 @@ import AboutDetail from "../components/AboutDetail.vue";
     }
 
     > .text {
-      padding: 20px 0;
       font-size: 18px;
       margin-left: 40px;
       text-indent: 2em;

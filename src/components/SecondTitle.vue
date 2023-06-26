@@ -8,7 +8,9 @@ const { englishTitle, chineseTitle } = defineProps([
 <template>
   <div class="sub-title">
     <h2>{{ chineseTitle }}</h2>
-    <p>—— {{ englishTitle }} ——</p>
+    <p>
+      —— <span>{{ englishTitle }}</span> ——
+    </p>
   </div>
 </template>
 
@@ -18,8 +20,12 @@ const { englishTitle, chineseTitle } = defineProps([
   margin-bottom: 20px;
 
   > p {
-    color: #0b83db;
+    color: rgba(150, 38, 64, 1);
     font-size: 20px;
+
+    span {
+      color: rgba(252, 18, 18, 1);
+    }
   }
 }
 </style>

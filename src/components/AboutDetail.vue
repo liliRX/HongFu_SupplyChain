@@ -43,7 +43,7 @@ const theFormat = (number) => {
     > .big-font {
       font-family: Oblique;
       font-size: 50px;
-      color: #0b83db;
+      color: rgba(252, 18, 18, 1);
       font-style: italic;
       font-weight: bold;
     }

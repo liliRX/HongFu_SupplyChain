@@ -1,7 +1,6 @@
 <template>
   <swiper
     :slidesPerView="1"
-    :spaceBetween="30"
     :loop="true"
     :centeredSlides="true"
     :pagination="{
@@ -17,6 +16,10 @@
   >
     <swiper-slide :key="`src_${index}`" v-for="(slide, index) in swiperSlides">
       <img class="slide_img" :src="slide.src" alt="" />
+      <div class="swiper_title">
+        <div>发展源于<span>创造价值</span></div>
+        <div>为客户降本增效是公司发展的驱动力</div>
+      </div>
     </swiper-slide>
   </swiper>
 </template>
@@ -27,9 +30,9 @@ import { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import service_slide1 from "@/assets/img/service-pic01.png";
-import service_slide2 from "@/assets/img/service-pic02.png";
-import service_slide3 from "@/assets/img/service-pic03.png";
+import service_slide1 from "@/assets/img/swiper_pic01.jpg";
+import service_slide2 from "@/assets/img/swiper_pic02.jpg";
+import service_slide3 from "@/assets/img/swiper-pic03.jpg";
 
 const modules = [Autoplay, Pagination, Navigation, A11y];
 
@@ -42,19 +45,37 @@ const swiperSlides = [
 
 <style lang="scss">
 $color: rgb(43, 121, 237);
+$marginTop: 90px;
 
 .mySwiper {
+  padding-top: $marginTop;
   height: 760px;
 
   .slide_img {
-    object-position: center;
     object-fit: cover;
     width: 100%;
     height: 100%;
+    transform: rotateY(180deg);
   }
 
   .swiper-slide {
     position: relative;
+
+    .swiper_title {
+      margin-left: 50px;
+      font-family: douyuFont;
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      transform: translateY(calc(-50% - $marginTop / 2));
+      left: 0;
+      color: white;
+      font-size: 40px;
+
+      span {
+        color: rgba(245, 7, 7, 1);
+      }
+    }
 
     &::after {
       content: "";
@@ -64,7 +85,7 @@ $color: rgb(43, 121, 237);
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(41, 128, 227, 0.5);
+      background-color: rgba(235, 236, 237, 0.3);
     }
   }
 }
@@ -78,7 +99,12 @@ $color: rgb(43, 121, 237);
   width: 14px;
   height: 14px;
   margin: 0 13px !important;
-  background-color: #fff;
+  background-color: white;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(252, 18, 18, 1);
 }
 
 //修改分页器圆点之间的距离
@@ -86,11 +112,5 @@ $color: rgb(43, 121, 237);
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
   margin: 0 8px;
-}
-
-//修改上下页箭头样式
-.swiper-button-prev,
-.swiper-button-next {
-  color: $color;
 }
 </style>
