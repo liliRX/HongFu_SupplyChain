@@ -11,11 +11,11 @@ const positionStore = usePositionStore();
 const { rate, isMobile } = storeToRefs(store);
 const { positionMap } = storeToRefs(positionStore);
 const activeLi = ref("home");
-const headerActive = ref(false);
+const emit = defineEmits(["setHeaderActive"]);
 
 const move = debounce(() => {
   const scrollY = window.scrollY;
-  headerActive.value = scrollY > 0;
+  emit("setHeaderActive", scrollY > positionMap.value["aboutUs"] - 100);
   const position = Object.keys(positionMap.value);
   for (let i = 0; i < position.length; i++) {
     if (positionMap.value[position[i]] - scrollY >= 0) {
@@ -23,7 +23,7 @@ const move = debounce(() => {
       break;
     }
   }
-}, 100);
+}, 50);
 
 const goModule = (id) => {
   if (id !== "http") {

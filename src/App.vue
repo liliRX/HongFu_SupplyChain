@@ -1,9 +1,9 @@
 <template>
   <template v-if="!isMobile">
-    <header class="header_container">
+    <header :class="`header_container ${headerActive ? 'header_active' : ''}`">
       <div class="out-body">
         <div class="body">
-          <HeaderView />
+          <HeaderView @setHeaderActive="judgeIsTop" />
         </div>
       </div>
     </header>
@@ -33,6 +33,7 @@ const positionStore = usePositionStore();
 const { isMobile } = storeToRefs(store);
 const { setScaleRate, setIsMobile } = store;
 const { setPosition } = positionStore;
+const headerActive = ref(false);
 
 onBeforeMount(() => {
   searchEquipment();
@@ -47,6 +48,11 @@ const searchEquipment = () => {
     // 当前设备是移动设备
     setIsMobile(true);
   }
+};
+
+// 判断是否偏离了顶部
+const judgeIsTop = (value) => {
+  headerActive.value = value;
 };
 
 // 计算位置
@@ -91,6 +97,12 @@ onMounted(() => {
   background-color: white;
   width: 100%;
   top: 0;
+}
+
+.header_active {
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.59);
 }
 
 .body {
