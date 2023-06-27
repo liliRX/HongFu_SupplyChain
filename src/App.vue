@@ -100,9 +100,9 @@ onMounted(() => {
 }
 
 .header_active {
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.59);
-  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.59);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.59);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(30, 30, 30, 0.59);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(30, 30, 30, 0.59);
+  box-shadow: 0px 1px 2px 0px rgba(30, 30, 30, 0.59);
 }
 
 .body {

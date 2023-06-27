@@ -25,9 +25,21 @@ export const services = [
 
 //define the data of advantage
 export const advantages = [
-  { url: "src/assets/img/test01.png", description: "advantage 1" },
-  { url: "src/assets/img/test02.png", description: "advantage 2" },
-  { url: "src/assets/img/test03.png", description: "advantage 3" }
+  {
+    title: "知名品牌战略合作伙伴",
+    description:
+      "目前是国内日化龙头企业纳爱斯集团的战略合作伙伴，已健康合作近10年，服务质量具有品牌背书，值得信赖。"
+  },
+  {
+    title: "自身实力雄厚，自有车辆数量可观",
+    description:
+      " 经过近些年的不断发展，我司注重服务质量的稳定性，因此不断投入资金采购物流车辆，截止目前已拥有自有车辆数十辆。"
+  },
+  {
+    title: "深耕物流行业多年，可协调资源丰富",
+    description:
+      "经过多年深耕，与行业知名物流公司诸如德邦、跨越、安能、安得、通达系有良好合作基础，形成了战略合作伙伴关系，可根据客户需要充分整合社会优质物流资源。"
+  }
 ];
 
 // 路由的地址
