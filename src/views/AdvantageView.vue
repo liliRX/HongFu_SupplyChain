@@ -34,7 +34,7 @@ import SecondTitle from "../components/SecondTitle.vue";
   }
 
   .img_container {
-    height: 360px;
+    height: 400px;
     border-radius: 10px;
     margin-left: 15px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);

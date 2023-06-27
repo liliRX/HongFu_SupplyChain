@@ -11,12 +11,13 @@ const positionStore = usePositionStore();
 const { rate, isMobile } = storeToRefs(store);
 const { positionMap } = storeToRefs(positionStore);
 const activeLi = ref("home");
+const headerActive = ref(false);
 
 const move = debounce(() => {
   const scrollY = window.scrollY;
+  headerActive.value = scrollY > 0;
   const position = Object.keys(positionMap.value);
   for (let i = 0; i < position.length; i++) {
-    console.log(100 * rate.value);
     if (positionMap.value[position[i]] - scrollY >= 0) {
       activeLi.value = position[i];
       break;
