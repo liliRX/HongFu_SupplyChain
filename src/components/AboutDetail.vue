@@ -8,9 +8,7 @@ const theFormat = (number) => {
 
 <template>
   <div v-for="item in aboutUs" class="about-wrapper">
-    <div
-      class="number animate__animated animate__headShake animate__delay-1s animate__slow animate__repeat-2"
-    >
+    <div class="number">
       <span class="big-font">
         <number
           ref="number1"
@@ -19,6 +17,7 @@ const theFormat = (number) => {
           :format="theFormat"
           :duration="2"
           easing="Power1.easeOut"
+          :animationPaused="true"
         />
       </span>
       <span class="add-info">

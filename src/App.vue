@@ -97,6 +97,7 @@ onMounted(() => {
   background-color: white;
   width: 100%;
   top: 0;
+  transition: all 0.2s linear;
 }
 
 .header_active {

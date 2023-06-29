@@ -13,7 +13,7 @@ footer {
   padding: 20px 0;
   display: flex;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 16px;
 
   > div {
     margin-right: 20px;

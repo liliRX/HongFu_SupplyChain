@@ -38,7 +38,7 @@ $bgColor: #fb3434;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 140px;
+    height: 130px;
     font-size: 38px;
     letter-spacing: 10px;
     color: white;
