@@ -65,11 +65,12 @@ onUnmounted(() => {
     <ol class="nav">
       <li
         @click="() => goModule(li.route)"
-        :class="activeLi === li.route ? 'active' : ''"
+        :class="`${activeLi === li.route ? 'active' : ''}`"
         :key="li.route"
         v-for="li in routeMap"
       >
         {{ li.title }}
+        <div class="child" v-if="li.children">1231</div>
       </li>
     </ol>
   </div>
@@ -85,7 +86,7 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  height: 90px;
+  min-height: 90px;
   width: 1300px;
   margin: auto;
 
@@ -102,6 +103,15 @@ onUnmounted(() => {
       font-size: 21px;
       cursor: pointer;
       margin-left: 80px;
+      position: relative;
+
+      .child {
+        position: absolute;
+        border: 1px solid red;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 }

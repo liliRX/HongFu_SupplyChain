@@ -51,7 +51,13 @@ export const routeMap = [
   { route: "aboutUs", title: "关于我们" },
   {
     route: "centerServices",
-    title: "核心服务"
+    title: "核心服务",
+    children: [
+      {
+        route: "/ECommerceCloudWarehouse",
+        title: "电商云仓"
+      }
+    ]
   },
   { route: "Advantage", title: "我们的优势" },
   { route: "linkUs", title: "联系我们" }
