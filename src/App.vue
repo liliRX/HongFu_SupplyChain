@@ -21,7 +21,7 @@
 
 <script setup>
 import Layout from "@/layout/LayoutView.vue";
-import { onBeforeMount, onMounted, onUnmounted, ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
 import { setRate, sumBeforeIndex } from "@/utils/utils.js";
 import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
@@ -74,10 +74,8 @@ const calculatePosition = () => {
 // 设置缩放比
 const setScale = () => {
   setScaleRate(document.body.clientWidth / 1584);
-  setTimeout(() => {
-    setRate();
-    calculatePosition();
-  }, 200);
+  setRate();
+  calculatePosition();
 };
 
 onMounted(() => {
@@ -101,9 +99,9 @@ onMounted(() => {
 }
 
 .header_active {
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(30, 30, 30, 0.59);
-  -moz-box-shadow: 0px 1px 2px 0px rgba(30, 30, 30, 0.59);
-  box-shadow: 0px 1px 2px 0px rgba(30, 30, 30, 0.59);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
+  -moz-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
+  box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
 }
 
 .body {

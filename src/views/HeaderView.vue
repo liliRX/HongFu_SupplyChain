@@ -1,7 +1,6 @@
 <script setup>
 import hongFu_logo from "@/assets/img/hongfulogo.png";
 import { onMounted, onUnmounted, ref } from "vue";
-import { debounce, goNewPage } from "@/utils/utils.js";
 import { routeMap } from "@/utils/common.js";
 import {
   usePositionStore,
@@ -20,7 +19,7 @@ const { setFirst } = firstComing;
 const activeLi = ref("home");
 const emit = defineEmits(["setHeaderActive"]);
 
-const move = debounce(() => {
+const move = () => {
   const positions = positionMap.value;
   const scrollY = window.scrollY;
   if (
@@ -38,7 +37,7 @@ const move = debounce(() => {
       break;
     }
   }
-}, 50);
+};
 
 const goModule = (id) => {
   if (id !== "http") {
@@ -86,6 +85,7 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+  height: 90px;
   width: 1300px;
   margin: auto;
 
