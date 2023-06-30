@@ -1,8 +1,28 @@
 <script setup>
 import { aboutUs } from "../utils/common.js";
+import { storeToRefs } from "pinia";
+import { useFirstComing } from "@/store/scalerate_store.js";
+import { ref, watch } from "vue";
+
+const { aboutUs: aboutUsFirstComing } = storeToRefs(useFirstComing());
+const refsMap = {};
+
+watch(aboutUsFirstComing, () => {
+  if (aboutUsFirstComing.value) {
+    Object.keys(refsMap).forEach((i) => {
+      refsMap[i].play();
+    });
+  }
+});
 
 const theFormat = (number) => {
   return number > 1000 ? "1000+" : Math.round(number);
+};
+
+const setRefMap = (el, item) => {
+  if (el) {
+    refsMap[`${item.num}Ref`] = el;
+  }
 };
 </script>
 
@@ -11,7 +31,7 @@ const theFormat = (number) => {
     <div class="number">
       <span class="big-font">
         <number
-          ref="number1"
+          :ref="(el) => setRefMap(el, item)"
           :from="0"
           :to="item.num"
           :format="theFormat"

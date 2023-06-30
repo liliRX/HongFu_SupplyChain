@@ -3,22 +3,37 @@ import hongFu_logo from "@/assets/img/hongfulogo.png";
 import { onMounted, onUnmounted, ref } from "vue";
 import { debounce, goNewPage } from "@/utils/utils.js";
 import { routeMap } from "@/utils/common.js";
-import { usePositionStore, useScaleStore } from "@/store/scalerate_store.js";
+import {
+  usePositionStore,
+  useScaleStore,
+  useFirstComing
+} from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 
 const store = useScaleStore();
 const positionStore = usePositionStore();
+const firstComing = useFirstComing();
 const { rate, isMobile } = storeToRefs(store);
 const { positionMap } = storeToRefs(positionStore);
+const { aboutUs } = storeToRefs(firstComing);
+const { setFirst } = firstComing;
 const activeLi = ref("home");
 const emit = defineEmits(["setHeaderActive"]);
 
 const move = debounce(() => {
+  const positions = positionMap.value;
   const scrollY = window.scrollY;
-  emit("setHeaderActive", scrollY > positionMap.value["aboutUs"] - 100);
-  const position = Object.keys(positionMap.value);
+  if (
+    positions["aboutUs"] - 200 < scrollY &&
+    scrollY < positions["centerServices"] - 200 &&
+    !aboutUs.value
+  ) {
+    setFirst("aboutUs");
+  }
+  emit("setHeaderActive", scrollY > positions["aboutUs"] - 100);
+  const position = Object.keys(positions);
   for (let i = 0; i < position.length; i++) {
-    if (positionMap.value[position[i]] - scrollY >= 0) {
+    if (positions[position[i]] - scrollY >= 0) {
       activeLi.value = position[i];
       break;
     }
@@ -34,6 +49,9 @@ const goModule = (id) => {
 };
 
 onMounted(() => {
+  setTimeout(() => {
+    move();
+  }, 300);
   window.addEventListener("scroll", move);
 });
 

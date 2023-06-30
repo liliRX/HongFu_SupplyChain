@@ -20,3 +20,12 @@ export const usePositionStore = defineStore("idPosition", {
     }
   }
 });
+
+export const useFirstComing = defineStore("firstComing", {
+  state: () => ({ aboutUs: false }),
+  actions: {
+    setFirst(e) {
+      this[e] = true;
+    }
+  }
+});
