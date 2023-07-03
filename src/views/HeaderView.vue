@@ -54,20 +54,20 @@ const onHover = () => {
   headerRef.value.classList.add("hoverHeader");
   setTimeout(() => {
     setRate();
-  }, 100);
+  }, 80);
 };
 
 const onLeave = () => {
   headerRef.value.classList.remove("hoverHeader");
   setTimeout(() => {
     setRate();
-  }, 100);
+  }, 80);
 };
 
 onMounted(() => {
   setTimeout(() => {
     move();
-  }, 300);
+  }, 50);
   window.addEventListener("scroll", move);
 });
 
@@ -115,7 +115,6 @@ onUnmounted(() => {
   height: 90px;
   width: 1300px;
   margin: auto;
-  transition: all 80ms linear;
 
   .hf-logo {
     display: flex;
@@ -152,6 +151,7 @@ onUnmounted(() => {
       font-size: 21px;
       cursor: pointer;
       margin-right: 80px;
+      transition: all 0.2s linear;
 
       &:hover {
         border-bottom: 3px solid red;

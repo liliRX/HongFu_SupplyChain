@@ -92,13 +92,15 @@ onMounted(() => {
 .header_container {
   position: fixed;
   z-index: 10;
-  background-color: white;
   width: 100%;
   top: 0;
   transition: all 0.2s linear;
+  color: white;
 }
 
 .header_active {
+  color: black;
+  background-color: white;
   -webkit-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
   -moz-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
   box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
@@ -112,5 +114,6 @@ onMounted(() => {
 .out-body {
   overflow-y: hidden;
   overflow-x: hidden;
+  transition: all 0.2s linear;
 }
 </style>

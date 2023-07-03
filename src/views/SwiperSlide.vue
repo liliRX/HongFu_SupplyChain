@@ -4,6 +4,12 @@
       :slidesPerView="1"
       :loop="true"
       :centeredSlides="true"
+      :effect="{
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        }
+      }"
       :pagination="{
         clickable: true
       }"
@@ -31,7 +37,7 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Navigation, Pagination, A11y } from "swiper";
+import { Autoplay, Navigation, Pagination, A11y, EffectFade } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
@@ -39,7 +45,7 @@ import service_slide1 from "@/assets/img/swiper_pic01.jpg";
 import service_slide2 from "@/assets/img/swiper_pic02.jpg";
 import service_slide3 from "@/assets/img/swiper-pic03.jpg";
 
-const modules = [Autoplay, Pagination, Navigation, A11y];
+const modules = [Autoplay, Pagination, Navigation, A11y, EffectFade];
 
 const swiperSlides = [
   { src: service_slide1 },
@@ -50,10 +56,8 @@ const swiperSlides = [
 
 <style lang="scss">
 $color: rgb(43, 121, 237);
-$marginTop: 90px;
 
 .mySwiper {
-  padding-top: $marginTop;
   height: 760px;
 
   .slide_img {
@@ -72,7 +76,7 @@ $marginTop: 90px;
       position: absolute;
       z-index: 10;
       top: 50%;
-      transform: translateY(calc(-50% - $marginTop / 2));
+      transform: translateY(calc(-50%));
       left: 0;
       color: white;
       font-size: 40px;
