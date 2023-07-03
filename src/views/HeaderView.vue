@@ -8,6 +8,7 @@ import {
   useFirstComing
 } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
+import { setRate } from "@/utils/utils.js";
 
 const store = useScaleStore();
 const positionStore = usePositionStore();
@@ -17,6 +18,7 @@ const { positionMap } = storeToRefs(positionStore);
 const { aboutUs } = storeToRefs(firstComing);
 const { setFirst } = firstComing;
 const activeLi = ref("home");
+const headerRef = ref(null);
 const emit = defineEmits(["setHeaderActive"]);
 
 const move = () => {
@@ -47,6 +49,21 @@ const goModule = (id) => {
   }
 };
 
+// 悬浮上触发
+const onHover = () => {
+  headerRef.value.classList.add("hoverHeader");
+  setTimeout(() => {
+    setRate();
+  }, 100);
+};
+
+const onLeave = () => {
+  headerRef.value.classList.remove("hoverHeader");
+  setTimeout(() => {
+    setRate();
+  }, 100);
+};
+
 onMounted(() => {
   setTimeout(() => {
     move();
@@ -60,58 +77,81 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="header">
+  <div :class="`header`" ref="headerRef">
     <img class="hf-logo" :src="hongFu_logo" alt="" />
     <ol class="nav">
       <li
+        @mouseenter="li.children && onHover()"
+        @mouseleave="li.children && onLeave()"
         @click="() => goModule(li.route)"
         :class="`${activeLi === li.route ? 'active' : ''}`"
         :key="li.route"
         v-for="li in routeMap"
       >
         {{ li.title }}
-        <div class="child" v-if="li.children">1231</div>
+        <ol class="child" v-if="li.children">
+          <li class="childLi" v-for="child in li.children">
+            {{ child.title }}
+          </li>
+        </ol>
       </li>
     </ol>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.active {
-  border-bottom: 3px solid red;
+.hoverHeader {
+  height: 120px !important;
+
+  .child {
+    display: block !important;
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 10px 0;
-  min-height: 90px;
+  height: 90px;
   width: 1300px;
   margin: auto;
+  transition: all 80ms linear;
 
   .hf-logo {
     display: flex;
     width: 260px;
+    height: 70px;
   }
 
   .nav {
     display: flex;
+    height: 70px;
+    align-items: center;
+
+    .child {
+      position: absolute;
+      display: none;
+      margin-top: 3px;
+      padding: 15px 0 20px;
+      width: 100%;
+      text-align: center;
+
+      .childLi {
+        font-size: 18px;
+      }
+    }
+
+    .active {
+      border-bottom: 3px solid red;
+    }
 
     > li {
+      border: 3px solid transparent;
+      position: relative;
       padding-bottom: 3px;
       font-size: 21px;
       cursor: pointer;
-      margin-left: 80px;
-      position: relative;
-
-      .child {
-        position: absolute;
-        border: 1px solid red;
-        bottom: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      margin-right: 80px;
     }
   }
 }
