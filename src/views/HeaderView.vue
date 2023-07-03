@@ -34,7 +34,7 @@ const move = () => {
   emit("setHeaderActive", scrollY > positions["aboutUs"] - 100);
   const position = Object.keys(positions);
   for (let i = 0; i < position.length; i++) {
-    if (positions[position[i]] - scrollY >= 0) {
+    if (positions[position[i]] - scrollY + 100 >= 0) {
       activeLi.value = position[i];
       break;
     }
@@ -77,7 +77,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="`header`" ref="headerRef">
+  <div class="header" ref="headerRef">
     <img class="hf-logo" :src="hongFu_logo" alt="" />
     <ol class="nav">
       <li
@@ -152,6 +152,10 @@ onUnmounted(() => {
       font-size: 21px;
       cursor: pointer;
       margin-right: 80px;
+
+      &:hover {
+        border-bottom: 3px solid red;
+      }
     }
   }
 }
