@@ -4,11 +4,9 @@
       :slidesPerView="1"
       :loop="true"
       :centeredSlides="true"
-      :effect="{
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        }
+      :effect="'fade'"
+      :fadeEffect="{
+        crossFade: true
       }"
       :pagination="{
         clickable: true
@@ -41,6 +39,7 @@ import { Autoplay, Navigation, Pagination, A11y, EffectFade } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+import "swiper/scss/effect-fade";
 import service_slide1 from "@/assets/img/swiper_pic01.jpg";
 import service_slide2 from "@/assets/img/swiper_pic02.jpg";
 import service_slide3 from "@/assets/img/swiper-pic03.jpg";
