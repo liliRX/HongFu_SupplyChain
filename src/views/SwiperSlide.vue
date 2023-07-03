@@ -3,6 +3,7 @@
     <swiper
       ref="homeSwiper"
       :slidesPerView="1"
+      :speed="500"
       :loop="true"
       :centeredSlides="true"
       :effect="'fade'"
@@ -14,7 +15,7 @@
         renderBullet
       }"
       :autoplay="{
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false
       }"
       :navigation="false"
