@@ -1,7 +1,6 @@
 <template>
   <div id="home">
     <swiper
-      ref="homeSwiper"
       :slidesPerView="1"
       :speed="500"
       :loop="true"
@@ -48,9 +47,6 @@ import "swiper/scss/effect-fade";
 import service_slide1 from "@/assets/img/swiper_pic01.jpg";
 import service_slide2 from "@/assets/img/swiper_pic02.jpg";
 import service_slide3 from "@/assets/img/swiper-pic03.jpg";
-import { ref } from "vue";
-
-const homeSwiper = ref(null);
 
 const modules = [Autoplay, Pagination, Navigation, A11y, EffectFade];
 
@@ -143,90 +139,90 @@ $color: rgb(43, 121, 237);
         background-color: rgba(235, 236, 237, 0.3);
       }
     }
-  }
 
-  .swiper-pagination {
-    right: 4.323%;
-    text-align: center;
-    width: auto;
-    bottom: 50%;
-    left: auto;
-    -webkit-transform: translate3d(0, 50%, 0);
-    transform: translate3d(0, 50%, 0);
-
-    .swiper-pagination-bullet {
-      margin: 0 0 3em;
+    .swiper-pagination {
+      right: 4.323%;
+      text-align: center;
       width: auto;
-      height: auto;
-      background-color: transparent;
-      display: block;
-      opacity: 1;
-      position: relative;
-      -webkit-transition: padding 0.5s linear;
-      transition: padding 0.5s linear;
-    }
+      bottom: 50%;
+      left: auto;
+      -webkit-transform: translate3d(0, 50%, 0);
+      transform: translate3d(0, 50%, 0);
 
-    .swiper-pagination-bullet:last-child {
-      margin: 0;
-    }
+      .swiper-pagination-bullet {
+        margin: 0 0 3em;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        display: block;
+        opacity: 1;
+        position: relative;
+        -webkit-transition: padding 0.5s linear;
+        transition: padding 0.5s linear;
+      }
 
-    .swiper-pagination-bullet.active {
-      padding: 0 0 16.25em;
-    }
+      .swiper-pagination-bullet:last-child {
+        margin: 0;
+      }
 
-    .swiper-pagination-bullet:last-child.active {
-      padding: 16.25em 0 0;
-    }
+      .swiper-pagination-bullet.active {
+        padding: 0 0 16.25em;
+      }
 
-    .swiper-pagination-bullet .num {
-      font-size: 1.125em;
-      color: #fff;
-      font-family: Arial, serif;
-      font-weight: bold;
-    }
+      .swiper-pagination-bullet:last-child.active {
+        padding: 16.25em 0 0;
+      }
 
-    .swiper-pagination-bullet .line {
-      /* content: ""; */
-      width: 2px;
-      height: 0;
-      background-color: rgba(255, 255, 255, 0.3);
-      display: block;
-      -webkit-transition: height 0.5s linear;
-      transition: height 0.5s linear;
-      position: absolute;
-      left: 50%;
-      margin-left: -1px;
-      bottom: 0;
-    }
+      .swiper-pagination-bullet .num {
+        font-size: 1.125em;
+        color: #fff;
+        font-family: Arial, serif;
+        font-weight: bold;
+      }
 
-    .swiper-pagination-bullet:last-child .line {
-      bottom: auto;
-      top: 0;
-    }
+      .swiper-pagination-bullet .line {
+        /* content: ""; */
+        width: 2px;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        display: block;
+        -webkit-transition: height 0.5s linear;
+        transition: height 0.5s linear;
+        position: absolute;
+        left: 50%;
+        margin-left: -1px;
+        bottom: 0;
+      }
 
-    .swiper-pagination-bullet.active .line {
-      height: 14.25em;
-    }
+      .swiper-pagination-bullet:last-child .line {
+        bottom: auto;
+        top: 0;
+      }
 
-    .swiper-pagination-bullet .line::after {
-      content: "";
-      background-color: #fff;
-      width: 100%;
-      height: 0;
-      display: block;
-      -webkit-transition: height 2.5s linear 0.5s;
-      transition: height 2.5s linear 0.5s;
-      position: absolute;
-      top: 0;
-    }
+      .swiper-pagination-bullet.active .line {
+        height: 14.25em;
+      }
 
-    .swiper-pagination-bullet:last-child .line::after {
-      bottom: 0;
-      top: auto;
-    }
+      .swiper-pagination-bullet .line::after {
+        content: "";
+        background-color: #fff;
+        width: 100%;
+        height: 0;
+        display: block;
+        -webkit-transition: height 2.5s linear 0.5s;
+        transition: height 2.5s linear 0.5s;
+        position: absolute;
+        top: 0;
+      }
 
-    .swiper-pagination-bullet.active .line::after {
-      height: 100%;
+      .swiper-pagination-bullet:last-child .line::after {
+        bottom: 0;
+        top: auto;
+      }
+
+      .swiper-pagination-bullet.active .line::after {
+        height: 100%;
+      }
     }
   }
 }

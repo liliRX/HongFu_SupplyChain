@@ -2,11 +2,11 @@
   <div id="history">
     <SecondTitle chinese-title="发展历史" english-title="History" />
     <swiper
-      ref="homeSwiper"
       :slidesPerView="1"
       :speed="500"
       :loop="true"
       :pagination="{
+        // el: '#history .swiper-pagination',
         clickable: true,
         renderBullet
       }"
@@ -24,9 +24,12 @@
         :key="`history_swiper_${index}`"
         v-for="(slide, index) in historySwiper"
       >
-        <div class="swiper_title">
-          <div>发展源于<span>创造价值</span></div>
-          <div>为客户降本增效是公司发展的驱动力</div>
+        <div class="historyLi">
+          <img :src="slide.url" alt="" />
+          <div class="history_description">
+            <h1>{{ slide.title }}</h1>
+            <p>{{ slide.description }}</p>
+          </div>
         </div>
       </swiper-slide>
     </swiper>
@@ -49,22 +52,71 @@ const renderBullet = function (index, className) {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+$deActive: grey;
+$active: rgb(252, 18, 18);
+$paginationHeight: 40px;
+
 #history {
   margin: 0 0 80px;
 
   .mySwiper {
-    height: 300px;
+    .historyLi {
+      img {
+        width: 100%;
+        height: 300px;
+      }
+
+      .history_description {
+        margin-left: 30px;
+
+        h1 {
+          text-align: center;
+          margin: 20px 0;
+          font-size: 30px;
+          color: rgb(252, 18, 18);
+        }
+
+        p {
+          font-size: 22px;
+          text-align: justify;
+        }
+      }
+
+      padding: $paginationHeight 100px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .swiper-button-prev {
+      color: $deActive;
+    }
+
+    .swiper-button-next {
+      color: $active;
+    }
 
     .swiper-pagination {
-      border: 1px solid red;
-      top: 4.323%;
+      top: 0;
       text-align: center;
-      width: auto;
-      bottom: 50%;
-      left: auto;
-      -webkit-transform: translate3d(0, 50%, 0);
-      transform: translate3d(0, 50%, 0);
+      width: calc(100% - 200px);
+      height: $paginationHeight;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        content: "";
+        width: 100%;
+        height: 20px;
+        background-color: transparent;
+        background-image: radial-gradient(circle, $active 25%, transparent 26%);
+        background-size: 20px 20px;
+      }
     }
   }
 }
