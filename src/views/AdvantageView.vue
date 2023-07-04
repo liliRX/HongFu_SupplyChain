@@ -25,10 +25,6 @@ import SecondTitle from "../components/SecondTitle.vue";
   padding-bottom: 40px;
   display: grid;
   grid-template-columns: 230px 1fr;
-  background-image: url("@/assets/img/advantage_bg.png");
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: contain;
 
   .adv-img {
     display: grid;

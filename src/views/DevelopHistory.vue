@@ -1,5 +1,5 @@
 <template>
-  <div id="history">
+  <div id="history" class="media_container">
     <SecondTitle chinese-title="发展历史" english-title="History" />
     <swiper
       :slidesPerView="1"
@@ -53,6 +53,8 @@ const renderBullet = function (index, className) {
 </script>
 
 <style lang="scss">
+@import "@/assets/media_container.scss";
+
 $deActive: grey;
 $active: rgb(252, 18, 18);
 $paginationHeight: 140px;

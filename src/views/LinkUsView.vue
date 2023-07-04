@@ -65,6 +65,7 @@ $color: white;
   }
 
   .flex-box {
+    position: relative;
     height: 280px;
     z-index: 10;
     display: flex;

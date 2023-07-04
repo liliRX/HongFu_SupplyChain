@@ -8,8 +8,9 @@ import {
   useFirstComing
 } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
-import { setRate } from "@/utils/utils.js";
+import { goPage, setRate } from "@/utils/utils.js";
 
+const pathname = window.location.pathname.substring(1);
 const store = useScaleStore();
 const positionStore = usePositionStore();
 const firstComing = useFirstComing();
@@ -17,36 +18,43 @@ const { rate, isMobile } = storeToRefs(store);
 const { positionMap } = storeToRefs(positionStore);
 const { aboutUs } = storeToRefs(firstComing);
 const { setFirst } = firstComing;
-const activeLi = ref("home");
+const activeLi = ref(pathname ? pathname : "home");
 const headerRef = ref(null);
 const emit = defineEmits(["setHeaderActive"]);
 
 const move = () => {
   const positions = positionMap.value;
-  const scrollY = window.scrollY;
-  if (
-    positions["aboutUs"] - 200 < scrollY &&
-    scrollY < positions["centerServices"] - 200 &&
-    !aboutUs.value
-  ) {
-    setFirst("aboutUs");
-  }
-  emit("setHeaderActive", scrollY > positions["aboutUs"] - 100);
-  const position = Object.keys(positions);
-  for (let i = 0; i < position.length; i++) {
-    if (positions[position[i]] - scrollY + 100 >= 0) {
-      activeLi.value = position[i];
-      break;
+  if (positions) {
+    const scrollY = window.scrollY;
+    if (
+      positions["aboutUs"] - 200 < scrollY &&
+      scrollY < positions["centerServices"] - 200 &&
+      !aboutUs.value
+    ) {
+      setFirst("aboutUs");
+    }
+    emit("setHeaderActive", scrollY > positions["aboutUs"] - 100);
+    const position = Object.keys(positions);
+    for (let i = 0; i < position.length; i++) {
+      if (positions[position[i]] - scrollY + 100 >= 0) {
+        activeLi.value = position[i];
+        break;
+      }
     }
   }
 };
 
+// 点击link
 const goModule = (id) => {
-  if (id !== "http") {
-    let top = positionMap.value[id] - 100 * rate.value;
-    window.scroll({ top, behavior: "smooth" });
+  if (id !== "eCommerceCloudWarehouse") {
+    if (window.location.origin + "/" !== window.location.href) {
+      goPage(window.location.origin);
+    } else {
+      let top = positionMap.value[id] - 100 * rate.value;
+      window.scroll({ top, behavior: "smooth" });
+    }
   } else {
-    // goNewPage("https://www.cnnice.com/");
+    goPage(window.location.href + id);
   }
 };
 
@@ -91,7 +99,16 @@ onUnmounted(() => {
       >
         {{ li.title }}
         <ol class="child" v-if="li.children">
-          <li class="childLi" v-for="child in li.children">
+          <li
+            :class="`childLi ${activeLi === child.route ? 'active' : ''}`"
+            @click="
+              (e) => {
+                e.stopPropagation();
+                goModule(child.route);
+              }
+            "
+            v-for="child in li.children"
+          >
             {{ child.title }}
           </li>
         </ol>

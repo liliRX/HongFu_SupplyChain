@@ -3,7 +3,7 @@ import AboutDetail from "../components/AboutDetail.vue";
 </script>
 
 <template>
-  <div class="about-container" id="aboutUs">
+  <div :class="`about-container media_container`" id="aboutUs">
     <h2 class="title">关于我们</h2>
     <div class="about_us">
       <img src="../assets/img/swiper_pic02.jpg" alt="" />
@@ -18,6 +18,8 @@ import AboutDetail from "../components/AboutDetail.vue";
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/media_container.scss";
+
 .about-container {
   margin-top: 100px;
 

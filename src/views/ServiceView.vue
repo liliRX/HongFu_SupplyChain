@@ -5,7 +5,7 @@ import SecondTitle from "../components/SecondTitle.vue";
 </script>
 
 <template>
-  <div class="service-container" id="centerServices">
+  <div class="service-container media_container" id="centerServices">
     <SecondTitle chinese-title="核心服务" english-title="Service" />
     <div class="service-list">
       <ServiceList v-for="item in services" :key="item.url" :data="item" />
@@ -14,6 +14,8 @@ import SecondTitle from "../components/SecondTitle.vue";
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/media_container.scss";
+
 .service-container {
   padding: 0 50px;
   margin-top: 100px;

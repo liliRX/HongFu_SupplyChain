@@ -50,6 +50,25 @@ export const goNewPage = (path, params = {}) => {
   a.click();
 };
 
+// 在当前本页更新
+export const goPage = (path, params = {}) => {
+  localStorage.setItem("lastPage", window.location.href);
+  let url = window.location.origin;
+  const { pathname } = window.location;
+
+  if (path.indexOf("http") === -1) url = `${url}${pathname}#${path}`;
+  else url = path;
+
+  const keys = Object.keys(params);
+  if (keys.length !== 0) {
+    url += "?";
+    const req = keys.map((item) => `${item}=${params[item]}`).join("&");
+    url += req;
+  }
+  window.scrollTo(0, 0);
+  window.location.href = url;
+};
+
 // 累加
 export function sumBeforeIndex(arr, index) {
   if (index >= arr.length || index < 0) {

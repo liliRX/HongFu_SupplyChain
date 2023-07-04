@@ -57,18 +57,20 @@ const judgeIsTop = (value) => {
 
 // 计算位置
 const calculatePosition = () => {
-  const heightMap = routeMap.reduce((pre, i) => {
-    let height = document
-      .querySelector(`#${i.route}`)
-      .getBoundingClientRect().height;
-    pre.push(Math.round(height + rate.value * 100));
-    return pre;
-  }, []);
-  const positionMap = routeMap.reduce((pre, i, currentIndex) => {
-    pre[i.route] = sumBeforeIndex(heightMap, currentIndex);
-    return pre;
-  }, {});
-  setPosition(positionMap);
+  if (window.location.pathname === "/") {
+    const heightMap = routeMap.reduce((pre, i) => {
+      let height = document
+        .querySelector(`#${i.route}`)
+        .getBoundingClientRect().height;
+      pre.push(Math.round(height + rate.value * 100));
+      return pre;
+    }, []);
+    const positionMap = routeMap.reduce((pre, i, currentIndex) => {
+      pre[i.route] = sumBeforeIndex(heightMap, currentIndex);
+      return pre;
+    }, {});
+    setPosition(positionMap);
+  }
 };
 
 // 设置缩放比

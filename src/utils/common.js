@@ -91,7 +91,7 @@ export const routeMap = [
     title: "核心服务",
     children: [
       {
-        route: "/ECommerceCloudWarehouse",
+        route: "eCommerceCloudWarehouse",
         title: "电商云仓"
       }
     ]
