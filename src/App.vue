@@ -30,7 +30,7 @@ import { routeMap } from "@/utils/common.js";
 
 const store = useScaleStore();
 const positionStore = usePositionStore();
-const { isMobile } = storeToRefs(store);
+const { isMobile, rate } = storeToRefs(store);
 const { setScaleRate, setIsMobile } = store;
 const { setPosition } = positionStore;
 const headerActive = ref(false);
@@ -61,7 +61,7 @@ const calculatePosition = () => {
     let height = document
       .querySelector(`#${i.route}`)
       .getBoundingClientRect().height;
-    pre.push(Math.round(height));
+    pre.push(Math.round(height + rate.value * 100));
     return pre;
   }, []);
   const positionMap = routeMap.reduce((pre, i, currentIndex) => {

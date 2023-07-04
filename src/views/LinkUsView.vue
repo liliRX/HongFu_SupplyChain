@@ -51,6 +51,7 @@ $color: white;
   background-repeat: no-repeat;
   background-position: center 50%;
   color: $color;
+  margin-top: 80px;
   padding: 50px 0 40px;
 
   &::after {

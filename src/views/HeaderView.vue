@@ -43,7 +43,8 @@ const move = () => {
 
 const goModule = (id) => {
   if (id !== "http") {
-    window.scroll({ top: positionMap.value[id], behavior: "smooth" });
+    let top = positionMap.value[id] - 100 * rate.value;
+    window.scroll({ top, behavior: "smooth" });
   } else {
     // goNewPage("https://www.cnnice.com/");
   }

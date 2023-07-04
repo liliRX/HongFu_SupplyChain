@@ -22,7 +22,6 @@ import SecondTitle from "../components/SecondTitle.vue";
 <style lang="scss">
 .adv-wrapper {
   margin-top: 100px;
-  margin-bottom: 60px;
   padding-bottom: 40px;
   display: grid;
   grid-template-columns: 230px 1fr;

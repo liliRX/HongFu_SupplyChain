@@ -58,7 +58,7 @@ $active: rgb(252, 18, 18);
 $paginationHeight: 140px;
 
 #history {
-  margin: 0 0 80px;
+  margin-top: 100px;
 
   .mySwiper {
     .historyLi {
