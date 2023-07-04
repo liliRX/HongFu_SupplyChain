@@ -1,47 +1,66 @@
 <script setup>
 import { advantages } from "../utils/common.js";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Pagination, A11y } from "swiper";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
 import SecondTitle from "../components/SecondTitle.vue";
+
+const modules = [Pagination, Navigation, A11y];
 </script>
 
 <template>
-  <div class="adv-wrapper" id="Advantage">
-    <div></div>
-    <main>
-      <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
-      <section class="adv-img">
-        <div class="img_container" v-for="item in advantages" :key="item.url">
-          <header><img :src="item.url" alt="" /></header>
-          <p class="title">{{ item.title }}</p>
-          <p class="description">{{ item.description }}</p>
+  <div id="Advantage">
+    <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
+    <swiper
+      :spaceBetween="40"
+      :slides-per-view="2"
+      :slides-offset="50"
+      :space-between="40"
+      :speed="500"
+      :pagination="{
+        // el: '#history .swiper-pagination',
+        clickable: true,
+        renderBullet
+      }"
+      :navigation="{
+        clickable: true
+      }"
+      :modules="modules"
+      class="mySwiper media_container"
+    >
+      <swiper-slide
+        :key="`history_swiper_${index}`"
+        v-for="(slide, index) in advantages"
+      >
+        <div class="img_container">
+          <p class="title">{{ slide.title }}</p>
+          <p class="description">{{ slide.description }}</p>
         </div>
-      </section>
-    </main>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <style lang="scss">
-.adv-wrapper {
+@import "@/assets/media_container.scss";
+
+#Advantage {
   margin-top: 100px;
   padding-bottom: 40px;
-  display: grid;
-  grid-template-columns: 230px 1fr;
 
-  .adv-img {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .mySwiper {
+    overflow: visible !important;
   }
 
   .img_container {
-    height: 400px;
+    height: 340px;
     border-radius: 10px;
     margin-left: 15px;
     padding: 15px 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     background-color: #fff;
-    background-image: url("@/assets/img/advantage_section_bg.png");
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-size: 60%;
 
     &:hover {
       background-color: red;
