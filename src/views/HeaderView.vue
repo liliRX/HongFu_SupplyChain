@@ -146,7 +146,7 @@ onUnmounted(() => {
     }
 
     > li {
-      border: 3px solid transparent;
+      border-bottom: 3px solid transparent;
       position: relative;
       padding-bottom: 3px;
       font-size: 21px;

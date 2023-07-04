@@ -55,7 +55,7 @@ const renderBullet = function (index, className) {
 <style lang="scss">
 $deActive: grey;
 $active: rgb(252, 18, 18);
-$paginationHeight: 40px;
+$paginationHeight: 140px;
 
 #history {
   margin: 0 0 80px;
@@ -64,7 +64,7 @@ $paginationHeight: 40px;
     .historyLi {
       img {
         width: 100%;
-        height: 300px;
+        height: 340px;
       }
 
       .history_description {
@@ -104,9 +104,39 @@ $paginationHeight: 40px;
       left: 50%;
       -webkit-transform: translate3d(-50%, 0, 0);
       transform: translate3d(-50%, 0, 0);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .swiper-pagination-bullet-active {
+        background-color: $active !important;
+
+        > b {
+          color: $active !important;
+        }
+      }
+
+      .swiper-pagination-bullet {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        opacity: 1;
+        background-color: #b3b3b3;
+
+        > b {
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #b3b3b3;
+        }
+      }
 
       &::after {
         position: absolute;
+        z-index: -1;
         top: 50%;
         transform: translateY(-50%);
         display: block;
