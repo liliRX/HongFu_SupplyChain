@@ -35,14 +35,12 @@ import Map from "@/components/Map.vue";
 import { onUpdated, ref, watch } from "vue";
 
 const activeMap = ref(linkUsInfo[0]);
+
 const location = ref(activeMap.value.location);
 
-watch(activeMap, () => {
-  location.value = activeMap.value.location;
-});
-
-watch(location, () => {
-  console.log(location.value);
+// 监视 activeMap 的变化，并相应更新 location
+watch(activeMap, (newActiveMap) => {
+  location.value = newActiveMap.location;
 });
 
 const goMap = () => {
@@ -66,15 +64,15 @@ $color: white;
   margin-top: 80px;
   //padding: 50px 0 40px;
 
-  //&::after {
-  //  content: "";
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  width: 100%;
-  //  height: 100%;
-  //  background-color: rgba(56, 56, 56, 0.58); /* 半透明黑色蒙层 */
-  //}
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(56, 56, 56, 0.21); /* 半透明黑色蒙层 */
+  }
 
   .flex-box {
     border-radius: 10px;
@@ -97,7 +95,7 @@ $color: white;
       background-color: rgba(255, 0, 0, 0.68);
 
       .info_li_container {
-        height: 120px !important;
+        height: 140px !important;
       }
     }
 
