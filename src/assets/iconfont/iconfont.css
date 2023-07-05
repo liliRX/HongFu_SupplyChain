@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 4039007 */
-  src: url("iconfont.woff2?t=1682427296829") format("woff2"),
-    url("iconfont.woff?t=1682427296829") format("woff"),
-    url("iconfont.ttf?t=1682427296829") format("truetype");
+  font-family: "iconfont"; /* Project id 4151868 */
+  src: url('iconfont.woff2?t=1688519778415') format('woff2'),
+       url('iconfont.woff?t=1688519778415') format('woff'),
+       url('iconfont.ttf?t=1688519778415') format('truetype');
 }
 
 .iconfont {
@@ -13,14 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-map:before {
-  content: "\e610";
+.icon-jiantou_xiangyou:before {
+  content: "\eb08";
 }
 
-.icon-post:before {
-  content: "\e687";
+.icon-jiantou_xiangzuo:before {
+  content: "\eb09";
 }
 
-.icon-tel:before {
-  content: "\e60f";
-}
