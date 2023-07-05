@@ -36,7 +36,7 @@ import SecondTitle from "../components/SecondTitle.vue";
     border-radius: 10px;
     margin-left: 15px;
     padding: 15px 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background-color: #fff;
     background-image: url("@/assets/img/advantage_section_bg.png");
     background-position: right bottom;
