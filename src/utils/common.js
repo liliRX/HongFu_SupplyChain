@@ -125,3 +125,31 @@ export const linkUsInfo = [
     title: "陕西省鸿福"
   }
 ];
+
+// 仓储
+export const images = [
+  {
+    id: 2,
+    src: "@/assets/img/service-pic02.png",
+    alt: "冷链仓配一体化",
+    title: "冷链仓配一体化"
+  },
+  {
+    id: 3,
+    src: "@/assets/img/service-pic02.png",
+    alt: "一件代发",
+    title: "一件代发"
+  },
+  {
+    id: 4,
+    src: "@/assets/img/service-pic02.png",
+    alt: "增值服务",
+    title: "增值服务"
+  },
+  {
+    id: 5,
+    src: "@/assets/img/service-pic02.png",
+    alt: "系统对接",
+    title: "系统对接"
+  }
+];

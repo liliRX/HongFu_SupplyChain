@@ -35,32 +35,7 @@
 </template>
 
 <script setup>
-const images = [
-  {
-    id: 2,
-    src: "@/assets/img/service-pic02.png",
-    alt: "冷链仓配一体化",
-    title: "冷链仓配一体化"
-  },
-  {
-    id: 3,
-    src: "@/assets/img/service-pic02.png",
-    alt: "一件代发",
-    title: "一件代发"
-  },
-  {
-    id: 4,
-    src: "@/assets/img/service-pic02.png",
-    alt: "增值服务",
-    title: "增值服务"
-  },
-  {
-    id: 5,
-    src: "@/assets/img/service-pic02.png",
-    alt: "系统对接",
-    title: "系统对接"
-  }
-];
+import { images } from "@/utils/common.js";
 </script>
 
 <style lang="scss" scoped>
@@ -129,13 +104,13 @@ const images = [
       justify-content: center;
       align-items: center;
 
-      > .image-container {
+      .image-container {
         position: relative;
-      }
 
-      > img {
-        width: 100%;
-        height: auto;
+        > img {
+          height: 450px;
+          width: 100%;
+        }
       }
     }
 
@@ -151,7 +126,7 @@ const images = [
 
         img {
           width: 100%;
-          height: auto;
+          height: 200px;
         }
       }
     }
@@ -180,8 +155,7 @@ const images = [
   }
 }
 
-> .intro_video {
+.intro_video {
+  margin-top: 80px;
 }
-
-//}
 </style>
