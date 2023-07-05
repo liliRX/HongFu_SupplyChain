@@ -7,6 +7,7 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import swiperBg from "@/assets/img/about_num_bg.png";
 import { ref } from "vue";
+import SecondTitle from "@/components/SecondTitle.vue";
 
 const modules = [Pagination, Navigation, A11y];
 const activeLi = ref("战略合作");
@@ -14,7 +15,7 @@ const activeLi = ref("战略合作");
 
 <template>
   <div id="Advantage">
-    <header class="media_container adv_header">我们的优势</header>
+    <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
     <swiper
       :spaceBetween="40"
       :slides-per-view="2"
@@ -148,8 +149,8 @@ const activeLi = ref("战略合作");
     }
 
     p {
-      font-weight: bold;
-      font-size: 24px;
+      font-size: 22px;
+      letter-spacing: 3px;
       line-height: 34px;
     }
   }

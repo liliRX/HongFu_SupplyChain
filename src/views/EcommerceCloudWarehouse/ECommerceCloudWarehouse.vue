@@ -44,6 +44,8 @@ import { images } from "@/utils/common.js";
 <style lang="scss" scoped>
 @import "@/assets/media_container.scss";
 
+$sectionImgHeight: 400px;
+
 #ECommerceCloudWarehouse {
   .header {
     height: 760px;
@@ -93,6 +95,7 @@ import { images } from "@/utils/common.js";
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 3px;
+    margin-bottom: 30px;
   }
 
   .intro {
@@ -107,7 +110,7 @@ import { images } from "@/utils/common.js";
     }
 
     .grid-container {
-      height: 400px;
+      margin-top: 80px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 20px;
@@ -127,7 +130,7 @@ import { images } from "@/utils/common.js";
 
       .left {
         width: 100%;
-        height: 100%;
+        height: $sectionImgHeight;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -171,6 +174,7 @@ import { images } from "@/utils/common.js";
       background-color: rgba(0, 0, 0, 0.7);
       color: #fff;
       padding: 5px;
+      z-index: 10;
     }
   }
 

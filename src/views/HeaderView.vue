@@ -172,7 +172,7 @@ onUnmounted(() => {
       padding-bottom: 3px;
       font-size: 21px;
       cursor: pointer;
-      margin-left: 30px;
+      margin-left: 40px;
       transition: all 0.4s linear;
 
       &:hover {

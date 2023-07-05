@@ -1,6 +1,6 @@
 <template>
   <div id="history" class="media_container">
-    <header>发展历程</header>
+    <SecondTitle chinese-title="发展历程" english-title="Development" />
     <div class="swiperBG">
       <div class="swiperContainer">
         <swiper
@@ -48,6 +48,7 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import { historySwiper } from "@/utils/common.js";
+import SecondTitle from "@/components/SecondTitle.vue";
 
 const modules = [Autoplay, Pagination, Navigation, A11y];
 

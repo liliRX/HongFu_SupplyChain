@@ -1,7 +1,7 @@
 //定义动画字体的数据
 /* jshint esversion: 6 */
 export const aboutUs = [
-  { num: "9", add: "年", info: "成立于2015年" },
+  { num: "9", add: "年", info: "成立于2014年" },
   { num: "1120", add: "", info: "客户" },
   { num: "200", add: "", info: "全国仓点" },
   { num: "500", add: "万M2", info: "仓库面积" }
@@ -42,7 +42,7 @@ export const advantages = [
 // 发展历史的轮播
 export const historySwiper = [
   {
-    time: "2012",
+    time: "2014",
     title: "成立",
     url: "src/assets/img/service-pic01.png",
     description:
@@ -80,7 +80,7 @@ export const historySwiper = [
 export const routeMap = [
   { route: "home", title: "首页" },
   { route: "aboutUs", title: "关于我们" },
-  { route: "history", title: "发展历史" },
+  { route: "history", title: "发展历程" },
   {
     route: "centerServices",
     title: "核心服务",
@@ -104,7 +104,7 @@ export const linkUsInfo = [
       { title: "邮箱", value: "2131231@qq.com" },
       { title: "联系电话", value: "1231321312" }
     ],
-    title: "浙江省鸿福"
+    title: "浙江鸿福供应链科技有限公司"
   },
   {
     location: [119.22, 36.54],
@@ -113,7 +113,7 @@ export const linkUsInfo = [
       { title: "邮箱", value: "2131231@qq.com" },
       { title: "联系电话", value: "1231321312" }
     ],
-    title: "山东省鸿福"
+    title: "山东鑫鸿福电子商务有限公司"
   },
   {
     location: [108.73, 34.47],
@@ -122,7 +122,7 @@ export const linkUsInfo = [
       { title: "邮箱", value: "2131231@qq.com" },
       { title: "联系电话", value: "1231321312" }
     ],
-    title: "陕西省鸿福"
+    title: "陕西鑫晟福泽商贸有限公司"
   }
 ];
 
