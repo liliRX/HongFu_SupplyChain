@@ -12,7 +12,7 @@ const { data } = defineProps(["data"]);
 <style lang="scss">
 @import "@/assets/font.scss";
 
-$bgColor: #fb3434;
+$bgColor: #ff4f4f;
 
 .wrapper {
   height: 380px;
@@ -42,7 +42,7 @@ $bgColor: #fb3434;
     font-size: 38px;
     letter-spacing: 10px;
     color: white;
-    background-color: rgb(252, 18, 18);
+    background-color: rgb(246, 63, 63);
     display: flex;
     justify-content: center;
     align-items: center;

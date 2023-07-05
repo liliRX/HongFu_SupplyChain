@@ -1,5 +1,4 @@
 <template>
-  <!--  <Map />-->
   <template v-if="pathname === '/'">
     <HomeSwiper />
     <AboutUsView />

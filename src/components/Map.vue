@@ -4,12 +4,16 @@
 
 <script setup>
 import AMapLoader from "@amap/amap-jsapi-loader";
-import { onMounted } from "vue";
+import { onMounted, onUpdated, watch } from "vue";
 
-const location = [120.208157, 30.189879];
+const { location } = defineProps(["location"]);
 
 onMounted(() => {
   initMap();
+});
+
+onUpdated(() => {
+  console.log(location);
 });
 
 const initMap = () => {
@@ -22,10 +26,14 @@ const initMap = () => {
       const map = new AMap.Map("mapContainer", {
         viewMode: "2D", // 默认使用 2D 模式
         zoom: 11, //初始化地图层级
-        center: location //初始化地图中心点
+        center: [location[0] + 0.25, location[1]], //初始化地图中心点
+        zoomEnable: false,
+        dragEnable: false,
+        mapStyle: "amap://styles/whitesmoke"
       });
 
       new AMap.Marker({
+        // offset: new AMap.Pixel(-400, -10),
         position: location, // 标记点的位置坐标
         map // 地图实例对象
       });
@@ -38,7 +46,7 @@ const initMap = () => {
 
 <style lang="scss" scoped>
 #mapContainer {
-  width: 500px;
-  height: 500px;
+  height: 600px;
+  width: 100%;
 }
 </style>

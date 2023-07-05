@@ -94,3 +94,34 @@ export const routeMap = [
   { route: "Advantage", title: "我们的优势" },
   { route: "linkUs", title: "联系我们" }
 ];
+
+// 联系我们
+export const linkUsInfo = [
+  {
+    location: [120.208157, 30.189879],
+    info: [
+      { title: "地址", value: "浙江省杭州市滨江区西兴街道江淑路13楼" },
+      { title: "邮箱", value: "2131231@qq.com" },
+      { title: "联系电话", value: "1231321312" }
+    ],
+    title: "浙江省鸿福"
+  },
+  {
+    location: [119.22, 36.54],
+    info: [
+      { title: "地址", value: "山东省潍坊市安丘市新安路圆通转运中心" },
+      { title: "邮箱", value: "2131231@qq.com" },
+      { title: "联系电话", value: "1231321312" }
+    ],
+    title: "山东省鸿福"
+  },
+  {
+    location: [108.73, 34.47],
+    info: [
+      { title: "地址", value: "陕西省西咸兴趣空港新城景平大姐22号" },
+      { title: "邮箱", value: "2131231@qq.com" },
+      { title: "联系电话", value: "1231321312" }
+    ],
+    title: "陕西省鸿福"
+  }
+];
