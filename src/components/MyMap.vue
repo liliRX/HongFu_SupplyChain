@@ -4,15 +4,23 @@
 
 <script setup>
 import AMapLoader from "@amap/amap-jsapi-loader";
-import { onMounted } from "vue";
+import { onMounted, onUpdated, watch } from "vue";
 
-const { location } = defineProps(["location"]);
+const props = defineProps(["location"]);
 
 onMounted(() => {
   initMap();
 });
 
+watch(
+  () => props.location,
+  () => {
+    initMap();
+  }
+);
+
 const initMap = () => {
+  const { location } = props;
   AMapLoader.load({
     key: "72045cb0d7c9acf4a4117098a984208e", // 申请好的Web端开发者Key，首次调用 load 时必填
     version: "2.0", // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15

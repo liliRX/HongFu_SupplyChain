@@ -1,6 +1,6 @@
 <template>
   <div class="link_container" id="linkUs">
-    <Map :location="location" />
+    <MyMap :location="location" />
     <div class="flex-box">
       <h2>联系我们</h2>
       <div
@@ -31,7 +31,7 @@
 // 跳转到对应的地图
 import { goNewPage } from "@/utils/utils.js";
 import { linkUsInfo } from "@/utils/common.js";
-import Map from "@/components/Map.vue";
+import MyMap from "@/components/MyMap.vue";
 import { onUpdated, ref, watch } from "vue";
 
 const activeMap = ref(linkUsInfo[0]);
