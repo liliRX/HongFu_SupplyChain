@@ -33,7 +33,10 @@ const move = () => {
     ) {
       setFirst("aboutUs");
     }
-    emit("setHeaderActive", scrollY > 0);
+    emit(
+      "setHeaderActive",
+      scrollY > 0 || pathname === "eCommerceCloudWarehouse"
+    );
     const position = Object.keys(positions);
     for (let i = 0; i < position.length; i++) {
       if (positions[position[i]] - scrollY + 100 >= 0) {

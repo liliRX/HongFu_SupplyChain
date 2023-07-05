@@ -1,38 +1,36 @@
 <template>
-  <div class="wrapper">
-    <header>
-      <img class="img" src="@/assets/img/ecommerce-bg.jpg" alt="" />
-      <div class="img_text">
-        <p class="p1">电商云仓</p>
-        <p class="p2">一站式电商仓配</p>
-      </div>
-    </header>
-    <main class="intro">
-      <div class="intro_img">
-        <p class="subtitle">仓配一体化服务</p>
-        <img src="@/assets/img/process.png" alt="仓配流程图" />
-        <div class="grid-container">
-          <div class="left">
-            <div class="image-container">
-              <img src="@/assets/img/service-pic02.png" alt="电商仓储" />
-              <div class="title">电商仓储</div>
-            </div>
+  <div class="header">
+    <img class="img" src="@/assets/img/ecommerce-bg.jpg" alt="" />
+    <div class="img_text">
+      <p class="p1">电商云仓</p>
+      <p class="p2">一站式电商仓配</p>
+    </div>
+  </div>
+  <div class="intro">
+    <div class="intro_img">
+      <p class="subtitle">仓配一体化服务</p>
+      <img src="@/assets/img/process.png" alt="仓配流程图" />
+      <div class="grid-container">
+        <div class="left">
+          <div class="image-container">
+            <img src="@/assets/img/service-pic02.png" alt="电商仓储" />
+            <div class="title">电商仓储</div>
           </div>
-          <div class="right">
-            <div v-for="image in images" :key="image.id" class="image-item">
-              <div class="image-container">
-                <img :src="image.src" :alt="image.alt" />
-                <div class="title">{{ image.title }}</div>
-                <div class="overlay"></div>
-              </div>
+        </div>
+        <div class="right">
+          <div v-for="image in images" :key="image.id" class="image-item">
+            <div class="image-container">
+              <img :src="image.src" :alt="image.alt" />
+              <div class="title">{{ image.title }}</div>
+              <div class="overlay"></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="intro_video">
-        <p class="subtitle">仓储视频位置</p>
-      </div>
-    </main>
+    </div>
+    <div class="intro_video">
+      <p class="subtitle">仓储视频位置</p>
+    </div>
   </div>
 </template>
 
@@ -66,33 +64,28 @@ const images = [
 </script>
 
 <style lang="scss" scoped>
-//.wrapper {
-//  min-height: 100%;
-//  margin: 80px 100px 0;
-
-header {
-  margin: 80px 100px 0;
-  height: 900px;
+.header {
+  height: 760px;
   position: relative;
 
-  > .img {
+  .img {
     object-fit: cover;
     width: 100%;
     height: 100%;
   }
 
   > .img_text {
-    margin-left: 100px;
     position: absolute;
     z-index: 10;
     top: 50%;
-    transform: translateY(calc(-50%));
-    left: 0;
+    transform: translateY(-50%);
+    left: 13%;
     color: white;
 
     > .p1 {
       font-size: 45px;
       font-weight: 400;
+      margin-bottom: 10px;
     }
 
     > .p2 {
@@ -114,7 +107,7 @@ header {
   }
 }
 
-> .intro {
+.intro {
   margin-top: 50px;
   border: red 3px solid;
 
@@ -124,7 +117,7 @@ header {
     letter-spacing: 3px;
   }
 
-  > .intro_img {
+  .intro_img {
     .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -153,7 +146,7 @@ header {
         "bottom-right bottom-left";
       grid-gap: 20px;
 
-      > .image-item {
+      .image-item {
         position: relative;
 
         img {
@@ -171,13 +164,6 @@ header {
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 5px;
-    //width: 100%;
-    //height: 100%;
-    //background: linear-gradient(
-    //                to top,
-    //                rgba(0, 0, 0, 0.8) 0%,
-    //                rgba(0, 0, 0, 0) 100%
-    //);
   }
 
   .overlay {
