@@ -27,7 +27,7 @@
             v-for="(slide, index) in historySwiper"
           >
             <div class="historyLi">
-              <img :src="slide.url" alt="" />
+              <img :src="slide.url" alt="" v-if="!isMobile" />
               <div class="history_description">
                 <h1>{{ slide.title }}</h1>
                 <p>{{ slide.description }}</p>
@@ -49,11 +49,15 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import { historySwiper } from "@/utils/common.js";
 import SecondTitle from "@/components/SecondTitle.vue";
+import { storeToRefs } from "pinia";
+import { useScaleStore } from "@/store/scalerate_store.js";
 
 const modules = [Autoplay, Pagination, Navigation, A11y];
+const store = useScaleStore();
+const { isMobile } = storeToRefs(store);
 
 const renderBullet = function (index, className) {
-  return `<span class="${className}"><b class="num">${historySwiper[index].time}</b></span>`;
+  return `<span class="${className}"><b>${historySwiper[index].time}</b></span>`;
 };
 </script>
 
@@ -65,6 +69,8 @@ $active: rgb(252, 18, 18);
 $paginationHeight: 140px;
 $paginationPadding: 150px;
 $swiperImgHeight: 240px;
+$paginationMobilePadding: 60px;
+$paginationMobileHeight: 80px;
 
 #history {
   margin-top: 100px;
@@ -192,6 +198,95 @@ $swiperImgHeight: 240px;
         background-color: transparent;
         background-image: radial-gradient(circle, $active 25%, transparent 26%);
         background-size: 20px 20px;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    .swiperBG {
+      background-color: white;
+      position: relative;
+    }
+
+    .swiperContainer {
+      background-color: white;
+      transform: none;
+      border: none;
+      scale: 95%;
+      height: initial;
+      position: relative;
+      padding: 20px 0;
+      z-index: 1;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .swiperAside {
+      display: none;
+    }
+
+    .mySwiper {
+      padding: 0;
+
+      .historyLi {
+        height: 100%;
+
+        .history_description {
+          margin-left: 0;
+
+          h1 {
+            margin-bottom: 10px;
+            font-size: 25px;
+          }
+
+          p {
+            font-size: 20px;
+            line-height: 34px;
+          }
+        }
+
+        padding: calc($paginationMobileHeight / 2 + 30px)
+          $paginationMobilePadding 0;
+        display: block;
+      }
+
+      .swiper-button-prev {
+        left: 10px;
+
+        &::after {
+          font-size: 32px;
+        }
+      }
+
+      .swiper-button-next {
+        right: 10px;
+
+        &::after {
+          font-size: 32px;
+        }
+      }
+
+      .swiper-pagination {
+        width: 100%;
+        height: $paginationMobileHeight;
+
+        .swiper-pagination-bullet {
+          width: 20px;
+          height: 20px;
+
+          > b {
+            top: -25px;
+            font-size: 14px;
+          }
+        }
+
+        &::after {
+          background-image: radial-gradient(
+            circle,
+            $active 15%,
+            transparent 15%
+          );
+        }
       }
     }
   }

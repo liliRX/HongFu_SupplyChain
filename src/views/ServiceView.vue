@@ -8,7 +8,12 @@ import SecondTitle from "../components/SecondTitle.vue";
   <div class="service-container media_container" id="centerServices">
     <SecondTitle chinese-title="核心服务" english-title="Service" />
     <div class="service-list">
-      <ServiceList v-for="item in services" :key="item.url" :data="item" />
+      <ServiceList
+        v-for="item in services"
+        :route="item.route"
+        :key="item.url"
+        :data="item"
+      />
     </div>
   </div>
 </template>

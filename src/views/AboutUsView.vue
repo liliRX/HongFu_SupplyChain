@@ -64,5 +64,37 @@ import AboutDetail from "../components/AboutDetail.vue";
     background-repeat: no-repeat;
     background-size: 38%;
   }
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    > .about_us {
+      display: flex;
+      flex-direction: column;
+
+      > .text {
+        margin: 20px 15px;
+        line-height: 35px;
+        letter-spacing: 2px;
+      }
+    }
+    > .animate {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 20px 0;
+      background-image: url("@/assets/img/about_num_bg.png");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 </style>

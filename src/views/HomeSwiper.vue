@@ -29,6 +29,7 @@
       >
         <img class="slide_img" :src="slide.src" alt="" />
         <div class="swiper_title">
+          <!--          <img :src="title" alt="" />-->
           <div>发展源于<span>创造价值</span></div>
           <div>为客户降本增效是公司发展的驱动力</div>
         </div>
@@ -47,6 +48,7 @@ import "swiper/scss/effect-fade";
 import service_slide1 from "@/assets/img/swiper_pic01.jpg";
 import service_slide2 from "@/assets/img/swiper_pic02.jpg";
 import service_slide3 from "@/assets/img/swiper-pic03.jpg";
+import title from "@/assets/img/home_title.png";
 
 const modules = [Autoplay, Pagination, Navigation, A11y, EffectFade];
 
@@ -113,6 +115,10 @@ $color: rgb(43, 121, 237);
       position: relative;
 
       .swiper_title {
+        //> img {
+        //  width: 70%;
+        //}
+
         margin-left: 50px;
         font-family: douyuFont, serif;
         position: absolute;
@@ -222,6 +228,27 @@ $color: rgb(43, 121, 237);
 
       .swiper-pagination-bullet.active .line::after {
         height: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .mySwiper {
+      margin-top: 70px;
+      height: 560px;
+
+      .swiper-slide {
+        .swiper_title {
+          width: 80%;
+          margin-left: 0;
+          left: 4%;
+          font-size: 24px;
+          line-height: 48px;
+        }
+      }
+
+      .swiper-pagination {
+        font-size: 13px;
       }
     }
   }

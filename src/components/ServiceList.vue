@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div :class="`wrapper ${route ? 'clickAble' : ''}`" @click="serveClick">
     <img :src="data.url" alt="" />
     <div>
       <span>{{ data.type }}</span>
@@ -8,13 +8,26 @@
 </template>
 
 <script setup>
-const { data } = defineProps(["data"]);
+import { goPage } from "@/utils/utils.js";
+
+const { data, route } = defineProps(["data", "route"]);
+
+// serveiceClick
+const serveClick = () => {
+  if (route) {
+    goPage(window.location.href + route);
+  }
+};
 </script>
 
 <style lang="scss">
 @import "@/assets/font.scss";
 
 $bgColor: rgba(255, 79, 79, 0.16);
+
+.clickAble {
+  cursor: pointer;
+}
 
 .wrapper {
   height: 380px;

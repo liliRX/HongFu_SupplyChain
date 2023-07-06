@@ -40,7 +40,7 @@ const activeLi = ref("战略合作");
           }`"
           @mouseenter="() => (activeLi = slide.title)"
         >
-          <img :src="swiperBg" class="adv_img" />
+          <img :src="swiperBg" class="advantage_img" />
           <div>
             <p class="description">{{ slide.description }}</p>
             <p class="title">{{ slide.title }}</p>
@@ -80,7 +80,7 @@ const activeLi = ref("战略合作");
   .adv_container_active {
     background-color: rgba(252, 18, 18, 0.6) !important;
 
-    .adv_img {
+    .advantage_img {
       opacity: 40% !important;
     }
 
@@ -121,7 +121,7 @@ const activeLi = ref("战略合作");
       align-items: end;
     }
 
-    .adv_img {
+    .advantage_img {
       position: absolute;
       left: -10%;
       bottom: -20%;
