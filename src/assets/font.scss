@@ -1,7 +1,7 @@
 @font-face {
   font-family: Oblique;
   src: local("Oblique"),
-    url("@/assets/font/SmileySans-Oblique-2.ttf") format("truetype");
+  url("@/assets/font/SmileySans-Oblique-2.ttf") format("truetype");
 }
 
 @font-face {
@@ -12,4 +12,9 @@
 @font-face {
   font-family: Alibaba;
   src: local("Alibaba"), url("@/assets/font/AlibabaPuHuiTi-3-85-Bold.ttf");
+}
+
+@font-face {
+  font-family: PangMen;
+  src: local("PangMen"), url("@/assets/font/PangMenZhengDaoBiaoTiTi-1.ttf");
 }

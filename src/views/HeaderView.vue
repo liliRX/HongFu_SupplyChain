@@ -33,7 +33,10 @@ const move = () => {
     ) {
       setFirst("aboutUs");
     }
-    emit("setHeaderActive", scrollY > positions["aboutUs"] - 100);
+    emit(
+      "setHeaderActive",
+      scrollY > 0 || pathname === "eCommerceCloudWarehouse"
+    );
     const position = Object.keys(positions);
     for (let i = 0; i < position.length; i++) {
       if (positions[position[i]] - scrollY + 100 >= 0) {
@@ -169,7 +172,7 @@ onUnmounted(() => {
       padding-bottom: 3px;
       font-size: 21px;
       cursor: pointer;
-      margin-left: 30px;
+      margin-left: 40px;
       transition: all 0.4s linear;
 
       &:hover {

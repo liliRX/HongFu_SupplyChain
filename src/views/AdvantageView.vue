@@ -1,71 +1,134 @@
 <script setup>
 import { advantages } from "../utils/common.js";
-import SecondTitle from "../components/SecondTitle.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Pagination, A11y } from "swiper";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+import swiperBg from "@/assets/img/about_num_bg.png";
+import { ref } from "vue";
+import SecondTitle from "@/components/SecondTitle.vue";
+
+const modules = [Pagination, Navigation, A11y];
+const activeLi = ref("战略合作");
 </script>
 
 <template>
-  <div class="adv-wrapper" id="Advantage">
-    <div></div>
-    <main>
-      <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
-      <section class="adv-img">
-        <div class="img_container" v-for="item in advantages" :key="item.url">
-          <header><img :src="item.url" alt="" /></header>
-          <p class="title">{{ item.title }}</p>
-          <p class="description">{{ item.description }}</p>
+  <div id="Advantage">
+    <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
+    <swiper
+      :spaceBetween="40"
+      :slides-per-view="2"
+      :slides-offset="50"
+      :space-between="40"
+      :speed="500"
+      :pagination="{ type: 'progressbar' }"
+      :navigation="{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }"
+      :modules="modules"
+      class="mySwiper media_container"
+    >
+      <swiper-slide
+        :key="`history_swiper_${index}`"
+        v-for="(slide, index) in advantages"
+      >
+        <div
+          :class="`adv_container ${
+            activeLi === slide.title ? 'adv_container_active' : ''
+          }`"
+          @mouseenter="() => (activeLi = slide.title)"
+        >
+          <img :src="swiperBg" class="adv_img" />
+          <div>
+            <p class="description">{{ slide.description }}</p>
+            <p class="title">{{ slide.title }}</p>
+          </div>
         </div>
-      </section>
-    </main>
+      </swiper-slide>
+      <div class="swiper-button-prev">
+        <i :class="`iconfont icon-jiantou_xiangzuo`"></i>
+      </div>
+      <div class="swiper-button-next">
+        <i :class="`iconfont icon-jiantou_xiangyou`"></i>
+      </div>
+    </swiper>
   </div>
 </template>
 
 <style lang="scss">
-.adv-wrapper {
+@import "@/assets/media_container.scss";
+@import "@/assets/font.scss";
+
+#Advantage {
   margin-top: 100px;
   padding-bottom: 40px;
-  display: grid;
-  grid-template-columns: 230px 1fr;
 
-  .adv-img {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .adv_header {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
   }
 
-  .img_container {
-    height: 400px;
-    border-radius: 10px;
-    margin-left: 15px;
-    padding: 15px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    background-color: #fff;
-    background-image: url("@/assets/img/advantage_section_bg.png");
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-size: 60%;
+  .mySwiper {
+    margin-top: 40px;
+    padding-bottom: 80px;
+    overflow: visible !important;
+  }
 
-    &:hover {
-      background-color: red;
-      background-image: url("@/assets/img/about_num_bg.png");
-      background-size: 55%;
+  .adv_container_active {
+    background-color: rgba(252, 18, 18, 0.6) !important;
 
-      .title {
-        display: none;
-      }
-
-      .description {
-        color: white;
-        display: initial;
-      }
+    .adv_img {
+      opacity: 40% !important;
     }
 
+    .title {
+      color: white !important;
+    }
+
+    .description {
+      color: white !important;
+    }
+  }
+
+  .adv_container {
+    height: 320px;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
     cursor: pointer;
     z-index: 1;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
     -webkit-transform: scale(1);
     transform: scale(1);
+
+    > div {
+      height: 100%;
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    .adv_img {
+      position: absolute;
+      left: -10%;
+      bottom: -20%;
+      z-index: 0;
+      width: 300px;
+      transform: rotateZ(45deg);
+    }
 
     header {
       display: flex;
@@ -80,24 +143,59 @@ import SecondTitle from "../components/SecondTitle.vue";
     }
 
     .title {
-      display: initial;
-    }
-
-    .description {
-      display: none;
+      font-size: 44px;
+      font-family: PangMen;
+      color: rgba(252, 18, 18, 1);
     }
 
     p {
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 28px;
+      font-size: 22px;
+      letter-spacing: 3px;
+      line-height: 34px;
+    }
+  }
+
+  .swiper-pagination-progressbar {
+    bottom: 20px;
+    left: initial;
+    right: 0;
+    top: initial;
+    width: 86%;
+    background-color: rgba(239, 123, 123, 0.4);
+  }
+
+  .swiper-pagination-progressbar-fill {
+    background-color: red;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+    bottom: 0;
+    top: initial;
+    color: grey;
+
+    i {
+      font-size: 30px;
     }
 
-    //> img {
-    //  width: 100%;
-    //  height: 100%;
-    //  border-radius: 10px;
-    //}
+    &::after {
+      display: none;
+    }
+  }
+
+  .swiper-button-next {
+    left: 50px;
+    bottom: 0;
+    top: initial;
+    color: grey;
+
+    i {
+      font-size: 30px;
+    }
+
+    &::after {
+      display: none;
+    }
   }
 }
 </style>

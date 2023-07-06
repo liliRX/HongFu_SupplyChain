@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <img :src="data.url" alt="" />
-    <div>{{ data.type }}</div>
+    <div>
+      <span>{{ data.type }}</span>
+    </div>
   </div>
 </template>
 
@@ -12,7 +14,7 @@ const { data } = defineProps(["data"]);
 <style lang="scss">
 @import "@/assets/font.scss";
 
-$bgColor: #fb3434;
+$bgColor: rgba(255, 79, 79, 0.16);
 
 .wrapper {
   height: 380px;
@@ -27,6 +29,10 @@ $bgColor: #fb3434;
   }
 
   > div {
+    > span {
+      opacity: 1;
+    }
+
     background-image: repeating-linear-gradient(
       60deg,
       $bgColor,
@@ -38,11 +44,11 @@ $bgColor: #fb3434;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 130px;
+    height: 80px;
     font-size: 38px;
     letter-spacing: 10px;
     color: white;
-    background-color: rgb(252, 18, 18);
+    background-color: rgb(246, 63, 63, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;

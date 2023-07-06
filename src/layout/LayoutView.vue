@@ -1,10 +1,9 @@
 <template>
-  <!--  <Map />-->
   <template v-if="pathname === '/'">
     <HomeSwiper />
     <AboutUsView />
-    <ServiceView />
     <DevelopHistory />
+    <ServiceView />
     <AdvantageView />
     <FooterView />
   </template>
