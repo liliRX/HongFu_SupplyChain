@@ -52,4 +52,10 @@ const initMap = () => {
   height: 600px;
   width: 100%;
 }
+
+@media (max-width: 767px) {
+  #mapContainer {
+    height: 530px;
+  }
+}
 </style>

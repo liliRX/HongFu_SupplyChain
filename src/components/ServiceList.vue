@@ -67,4 +67,20 @@ $bgColor: rgba(255, 79, 79, 0.16);
     align-items: center;
   }
 }
+
+@media (max-width: 767px) {
+  .wrapper {
+    height: 300px;
+
+    > div {
+      > span {
+        opacity: 1;
+      }
+
+      height: 80px;
+      font-size: 34px;
+      letter-spacing: 10px;
+    }
+  }
+}
 </style>

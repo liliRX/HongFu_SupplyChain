@@ -41,4 +41,16 @@ import SecondTitle from "../components/SecondTitle.vue";
     grid-row-gap: 20px;
   }
 }
+
+@media (max-width: 767px) {
+  .service-container {
+    padding: 0 10px;
+    margin-top: 40px;
+
+    > .service-list {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
 </style>

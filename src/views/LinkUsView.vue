@@ -135,4 +135,16 @@ $color: white;
     }
   }
 }
+
+@media (max-width: 767px) {
+  .link_container {
+    margin-top: 40px;
+
+    .flex-box {
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 90%;
+    }
+  }
+}
 </style>
