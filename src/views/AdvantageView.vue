@@ -66,7 +66,6 @@ const activeLi = ref("战略合作");
 
 #Advantage {
   margin-top: 100px;
-  padding-bottom: 40px;
 
   .mySwiper {
     margin-top: 40px;

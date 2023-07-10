@@ -163,7 +163,7 @@ onUnmounted(() => {
         transition: all 0.4s linear;
 
         .childLi {
-          font-size: 18px;
+          font-size: 16px;
         }
       }
 
@@ -175,9 +175,9 @@ onUnmounted(() => {
         border-bottom: 3px solid transparent;
         position: relative;
         padding-bottom: 3px;
-        font-size: 21px;
+        font-size: 20px;
         cursor: pointer;
-        margin-left: 40px;
+        margin-left: 34px;
         transition: all 0.4s linear;
 
         &:hover {

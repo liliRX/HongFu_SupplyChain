@@ -101,6 +101,7 @@ export const routeMap = [
     ]
   },
   { route: "Advantage", title: "我们的优势" },
+  { route: "Customer", title: "我们的客户" },
   { route: "linkUs", title: "联系我们" }
 ];
 
@@ -161,4 +162,27 @@ export const images = [
     alt: "系统对接",
     title: "系统对接"
   }
+];
+
+//brandIcons
+import icon1 from "@/assets/brand_icons/icon1.png";
+import icon2 from "@/assets/brand_icons/icon2.png";
+import icon3 from "@/assets/brand_icons/icon3.png";
+import icon4 from "@/assets/brand_icons/icon4.png";
+import icon5 from "@/assets/brand_icons/icon5.png";
+import icon6 from "@/assets/brand_icons/icon6.png";
+import icon7 from "@/assets/brand_icons/icon7.png";
+import icon8 from "@/assets/brand_icons/icon8.png";
+import icon9 from "@/assets/brand_icons/icon9.png";
+
+export const brandIcons = [
+  icon1,
+  icon2,
+  icon3,
+  icon4,
+  icon5,
+  icon6,
+  icon7,
+  icon8,
+  icon9
 ];
