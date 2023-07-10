@@ -83,7 +83,7 @@ $color: white;
     right: 10%;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 5;
 
     h2 {
       color: red;

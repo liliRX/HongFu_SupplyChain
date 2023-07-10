@@ -2,6 +2,7 @@ import pic01 from "@/assets/img/service-pic01.png";
 import pic02 from "@/assets/img/service-pic02.png";
 import pic03 from "@/assets/img/service-pic03.png";
 import pic04 from "@/assets/img/service-pic04.png";
+import systemConnect from "@/assets/ecommerce_cloud_warehouse/system_connect.png";
 
 //定义动画字体的数据
 /* jshint esversion: 6 */
@@ -158,7 +159,7 @@ export const images = [
   },
   {
     id: 5,
-    src: pic04,
+    src: systemConnect,
     alt: "系统对接",
     title: "系统对接"
   }
