@@ -8,8 +8,12 @@ import "swiper/scss/pagination";
 import swiperBg from "@/assets/img/about_num_bg.png";
 import { ref } from "vue";
 import SecondTitle from "@/components/SecondTitle.vue";
+import { storeToRefs } from "pinia";
+import { useScaleStore } from "@/store/scalerate_store.js";
 
 const modules = [Pagination, Navigation, A11y];
+const store = useScaleStore();
+const { isMobile } = storeToRefs(store);
 const activeLi = ref("战略合作");
 </script>
 
@@ -17,10 +21,9 @@ const activeLi = ref("战略合作");
   <div id="Advantage">
     <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
     <swiper
-      :spaceBetween="40"
-      :slides-per-view="2"
+      :spaceBetween="isMobile ? 20 : 40"
+      :slides-per-view="isMobile ? 1 : 2"
       :slides-offset="50"
-      :space-between="40"
       :speed="500"
       :pagination="{ type: 'progressbar' }"
       :navigation="{
@@ -40,7 +43,7 @@ const activeLi = ref("战略合作");
           }`"
           @mouseenter="() => (activeLi = slide.title)"
         >
-          <img :src="swiperBg" class="adv_img" />
+          <img :src="swiperBg" class="advantage_img" />
           <div>
             <p class="description">{{ slide.description }}</p>
             <p class="title">{{ slide.title }}</p>
@@ -63,13 +66,6 @@ const activeLi = ref("战略合作");
 
 #Advantage {
   margin-top: 100px;
-  padding-bottom: 40px;
-
-  .adv_header {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
 
   .mySwiper {
     margin-top: 40px;
@@ -80,7 +76,7 @@ const activeLi = ref("战略合作");
   .adv_container_active {
     background-color: rgba(252, 18, 18, 0.6) !important;
 
-    .adv_img {
+    .advantage_img {
       opacity: 40% !important;
     }
 
@@ -121,7 +117,7 @@ const activeLi = ref("战略合作");
       align-items: end;
     }
 
-    .adv_img {
+    .advantage_img {
       position: absolute;
       left: -10%;
       bottom: -20%;
@@ -195,6 +191,57 @@ const activeLi = ref("战略合作");
 
     &::after {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #Advantage {
+    margin-top: 40px;
+    padding-bottom: 0;
+
+    .mySwiper {
+      margin-top: 0px;
+      padding-bottom: 50px;
+      overflow: visible !important;
+      width: 80%;
+
+      .swiper-slide {
+        //width: 90% !important;
+      }
+    }
+
+    .adv_container {
+      padding: 20px;
+      height: 330px;
+
+      .title {
+        font-size: 38px;
+      }
+
+      p {
+        font-size: 18px;
+        letter-spacing: 3px;
+        line-height: 34px;
+      }
+    }
+
+    .swiper-pagination-progressbar {
+      width: 80%;
+    }
+
+    .swiper-button-prev {
+      i {
+        font-size: 19px;
+      }
+    }
+
+    .swiper-button-next {
+      left: 30px;
+
+      i {
+        font-size: 19px;
+      }
     }
   }
 }

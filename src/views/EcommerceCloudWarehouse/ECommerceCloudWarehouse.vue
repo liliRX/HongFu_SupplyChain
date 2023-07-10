@@ -15,7 +15,10 @@
       <div class="grid-container">
         <div class="left">
           <div class="image-container">
-            <img src="@/assets/img/service-pic02.png" alt="电商仓储" />
+            <img
+              src="@/assets/ecommerce_cloud_warehouse/ecommerceStore.png"
+              alt="电商仓储"
+            />
             <div class="title">电商仓储</div>
           </div>
         </div>
@@ -105,7 +108,7 @@ $sectionImgHeight: 400px;
     .intro_img {
       > img {
         width: 100%;
-        height: 430px;
+        height: 300px;
       }
     }
 
@@ -148,7 +151,7 @@ $sectionImgHeight: 400px;
 
       .right {
         width: 100%;
-        height: 100%;
+        height: 400px;
         display: grid;
         grid-template-areas:
           "top-right top-left"

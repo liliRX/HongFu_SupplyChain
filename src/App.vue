@@ -13,10 +13,10 @@
       </div>
     </div>
   </template>
-  <template class="app" v-else>
+  <div class="app" v-else>
     <HeaderView />
     <Layout />
-  </template>
+  </div>
 </template>
 
 <script setup>
@@ -47,6 +47,8 @@ const searchEquipment = () => {
   ) {
     // 当前设备是移动设备
     setIsMobile(true);
+  } else {
+    setIsMobile(false);
   }
 };
 
@@ -62,7 +64,8 @@ const calculatePosition = () => {
       let height = document
         .querySelector(`#${i.route}`)
         .getBoundingClientRect().height;
-      pre.push(Math.round(height + rate.value * 100));
+      height = height + (isMobile.value ? 40 : rate.value * 100);
+      pre.push(Math.round(height));
       return pre;
     }, []);
     const positionMap = routeMap.reduce((pre, i, currentIndex) => {
@@ -117,5 +120,9 @@ onMounted(() => {
   overflow-y: hidden;
   overflow-x: hidden;
   transition: all 0.2s linear;
+}
+
+.app {
+  overflow: hidden;
 }
 </style>

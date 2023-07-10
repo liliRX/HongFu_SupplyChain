@@ -8,7 +8,12 @@ import SecondTitle from "../components/SecondTitle.vue";
   <div class="service-container media_container" id="centerServices">
     <SecondTitle chinese-title="核心服务" english-title="Service" />
     <div class="service-list">
-      <ServiceList v-for="item in services" :key="item.url" :data="item" />
+      <ServiceList
+        v-for="item in services"
+        :route="item.route"
+        :key="item.url"
+        :data="item"
+      />
     </div>
   </div>
 </template>
@@ -34,6 +39,18 @@ import SecondTitle from "../components/SecondTitle.vue";
     grid-template-rows: 1fr 1fr;
     grid-column-gap: 15px;
     grid-row-gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-container {
+    padding: 0 10px;
+    margin-top: 40px;
+
+    > .service-list {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 </style>

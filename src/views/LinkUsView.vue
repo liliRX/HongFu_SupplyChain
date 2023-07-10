@@ -83,7 +83,7 @@ $color: white;
     right: 10%;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 5;
 
     h2 {
       color: red;
@@ -132,6 +132,18 @@ $color: white;
         padding: 17px 10px;
         cursor: pointer;
       }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .link_container {
+    margin-top: 40px;
+
+    .flex-box {
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 90%;
     }
   }
 }

@@ -2,7 +2,7 @@
 import { aboutUs } from "../utils/common.js";
 import { storeToRefs } from "pinia";
 import { useFirstComing } from "@/store/scalerate_store.js";
-import { ref, watch } from "vue";
+import { watch } from "vue";
 
 const { aboutUs: aboutUsFirstComing } = storeToRefs(useFirstComing());
 const refsMap = {};
@@ -77,6 +77,31 @@ const setRefMap = (el, item) => {
     text-align: center;
     margin-top: 10px;
     font-size: 18px;
+  }
+
+  @media (max-width: 767px) {
+    width: 50%;
+    margin-bottom: 30px;
+    > .number {
+      > .big-font {
+        font-family: Oblique;
+        font-size: 50px;
+        color: rgba(252, 18, 18, 1);
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      > .add-info {
+        color: gray;
+        margin-left: 15px;
+      }
+    }
+
+    > .num-comment {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 18px;
+    }
   }
 }
 </style>

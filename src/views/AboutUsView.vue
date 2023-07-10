@@ -8,7 +8,7 @@ import AboutDetail from "../components/AboutDetail.vue";
     <div class="about_us">
       <img src="../assets/img/swiper_pic02.jpg" alt="" />
       <p class="text">
-        鸿福物流成立于2014年，公司总部位于浙江丽水，目前已在河南、山东开设分公司。公司始终坚持客户至上的服务理念，是一家现代化综合型物流企业，拥有自营车辆近百辆，自成立之初便与国内日化龙头企业纳爱斯集团建立了重要战略合作关系。同时社会各知名品牌物流公司诸如德邦、跨越、安能等均有战略合作，可调动社会物流资源丰富。
+        鸿福供应链是一家致力于为客户提供端到端数智化供应链解决方案的物流科技企业，通过建立端到端全链路数智化的物流运营迭代能力，为客户提供从原料至成品的生产精益物流，线上线下一盘货，Tob/C一体化，仓干配一体化及送装一体化服务的系统解决方案，协助企业推动渠道变革与供应链效率优化，提升竞争优势，助力客户实现可持续性发展。
       </p>
     </div>
     <div class="animate">
@@ -63,6 +63,38 @@ import AboutDetail from "../components/AboutDetail.vue";
     background-position: right 37%;
     background-repeat: no-repeat;
     background-size: 38%;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    > .about_us {
+      display: flex;
+      flex-direction: column;
+
+      > .text {
+        margin: 20px 15px;
+        line-height: 35px;
+        letter-spacing: 2px;
+      }
+    }
+    > .animate {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 20px 0;
+      background-image: url("@/assets/img/about_num_bg.png");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 80%;
+    }
   }
 }
 </style>

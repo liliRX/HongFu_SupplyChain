@@ -27,5 +27,9 @@ const { englishTitle, chineseTitle } = defineProps([
       color: rgba(252, 18, 18, 1);
     }
   }
+
+  @media (max-width: 767px) {
+    margin-bottom: 30px;
+  }
 }
 </style>
