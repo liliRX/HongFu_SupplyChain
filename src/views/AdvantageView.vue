@@ -205,16 +205,16 @@ const activeLi = ref("战略合作");
       margin-top: 0px;
       padding-bottom: 50px;
       overflow: visible !important;
-      width: 90%;
+      width: 80%;
 
-      .swiper-wrapper {
-        width: 90%;
+      .swiper-slide {
+        //width: 90% !important;
       }
     }
 
     .adv_container {
-      width: 100%;
-      height: 360px;
+      padding: 20px;
+      height: 330px;
 
       .title {
         font-size: 38px;

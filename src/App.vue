@@ -47,6 +47,8 @@ const searchEquipment = () => {
   ) {
     // 当前设备是移动设备
     setIsMobile(true);
+  } else {
+    setIsMobile(false);
   }
 };
 
