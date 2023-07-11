@@ -31,14 +31,14 @@ const move = () => {
       "setHeaderActive",
       scrollY > 0 || pathname === "eCommerceCloudWarehouse"
     );
+    if (
+      positions["aboutUs"] - 100 < scrollY &&
+      scrollY < positions["centerServices"] - 100 &&
+      !aboutUs.value
+    ) {
+      setFirst("aboutUs");
+    }
     if (!isMobile.value) {
-      if (
-        positions["aboutUs"] - 200 < scrollY &&
-        scrollY < positions["centerServices"] - 200 &&
-        !aboutUs.value
-      ) {
-        setFirst("aboutUs");
-      }
       const position = Object.keys(positions);
       for (let i = 0; i < position.length; i++) {
         if (positions[position[i]] - scrollY + 100 >= 0) {
@@ -83,11 +83,11 @@ onMounted(() => {
   setTimeout(() => {
     move();
   }, 50);
-  window.addEventListener("scroll", move);
+  document.addEventListener(isMobile.value ? "touchmove" : "scroll", move);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", move);
+  document.removeEventListener(isMobile.value ? "touchmove" : "scroll", move);
 });
 </script>
 

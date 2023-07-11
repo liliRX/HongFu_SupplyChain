@@ -235,7 +235,7 @@ $color: rgb(43, 121, 237);
   @media (max-width: 767px) {
     .mySwiper {
       margin-top: 70px;
-      height: 560px;
+      height: calc(100vh - 70px);
 
       .swiper-slide {
         .swiper_title {

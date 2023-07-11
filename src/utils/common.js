@@ -2,6 +2,8 @@ import pic01 from "@/assets/img/service-pic01.png";
 import pic02 from "@/assets/img/service-pic02.png";
 import pic03 from "@/assets/img/service-pic03.png";
 import pic04 from "@/assets/img/service-pic04.png";
+import transport from "@/assets/img/transport.jpg";
+import store from "@/assets/img/store.png";
 import systemConnect from "@/assets/ecommerce_cloud_warehouse/system_connect.png";
 
 //定义动画字体的数据
@@ -15,14 +17,14 @@ export const aboutUs = [
 
 //定义核心服务的数据
 export const services = [
-  { url: pic01, type: "干线运输" },
+  { url: transport, type: "干线运输" },
   {
     url: pic02,
     type: "电商云仓",
     route: "eCommerceCloudWarehouse"
   },
   { url: pic03, type: "城市配送" },
-  { url: pic04, type: "仓储物流" }
+  { url: store, type: "仓储物流" }
 ];
 
 //define the data of advantage

@@ -117,8 +117,8 @@ onMounted(() => {
 }
 
 .out-body {
-  overflow-y: hidden;
-  overflow-x: hidden;
+  //overflow-y: hidden;
+  //overflow-x: hidden;
   transition: all 0.2s linear;
 }
 

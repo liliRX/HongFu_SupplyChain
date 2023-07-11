@@ -97,7 +97,7 @@ const goModule = (id) => {
   }
 
   .nav_li {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 20px;
     line-height: 27px;
     transition: all linear 0.4s;
@@ -126,7 +126,10 @@ const goModule = (id) => {
 }
 
 .ul_close {
-  top: 70px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
+  -moz-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
+  box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
+  top: 64px;
 
   > div {
     display: initial;
