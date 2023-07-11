@@ -8,11 +8,36 @@
     <div>
       <li
         @click="() => goModule(li.route)"
-        :class="`${activeLi === li.route ? 'active' : ''}`"
         :key="li.route"
         v-for="li in routeMap"
+        :class="`nav_li ${childLi === li.title ? 'active' : ''}`"
       >
-        {{ li.title }}
+        <div>
+          {{ li.title }}
+          <span
+            v-if="li.children"
+            @click="
+              (e) => {
+                e.stopPropagation();
+                childLi = childLi === null ? li.title : null;
+              }
+            "
+            >{{ childLi === li.title ? "-" : "+" }}</span
+          >
+        </div>
+        <ol class="child" v-show="li.children && childLi === li.title">
+          <li
+            @click="
+              (e) => {
+                e.stopPropagation();
+                goModule(child.route);
+              }
+            "
+            v-for="child in li.children"
+          >
+            {{ child.title }}
+          </li>
+        </ol>
       </li>
     </div>
   </ul>
@@ -26,7 +51,7 @@ import { storeToRefs } from "pinia";
 import { usePositionStore } from "@/store/scalerate_store.js";
 
 const close = ref(false);
-const activeLi = ref("");
+const childLi = ref(null);
 const positionStore = usePositionStore();
 const { positionMap } = storeToRefs(positionStore);
 
@@ -57,7 +82,7 @@ const goModule = (id) => {
   right: 0;
   background-color: #fff;
   transition: all 0.3s linear;
-  padding: 4px 20px 8px;
+  padding: 16px 20px 8px;
   z-index: -1;
   width: 100%;
 
@@ -65,10 +90,38 @@ const goModule = (id) => {
     display: none;
   }
 
-  li {
-    text-align: center;
+  .active {
+    > div {
+      color: red;
+    }
+  }
+
+  .nav_li {
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 27px;
+    transition: all linear 0.4s;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    span {
+      width: 50%;
+      text-align: end;
+      font-size: 24px;
+    }
+
+    .child {
+      margin-top: 10px;
+
+      > li {
+        margin-left: 20px;
+        font-size: 16px;
+      }
+    }
   }
 }
 

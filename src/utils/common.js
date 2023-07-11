@@ -177,13 +177,13 @@ import icon8 from "@/assets/brand_icons/icon8.png";
 import icon9 from "@/assets/brand_icons/icon9.png";
 
 export const brandIcons = [
-  icon1,
-  icon2,
-  icon3,
-  icon4,
-  icon5,
-  icon6,
-  icon7,
-  icon8,
-  icon9
+  { src: icon1 },
+  { src: icon2 },
+  { src: icon3, bgc: "rgb(252,201,0)", scale: "60%" },
+  { src: icon4 },
+  { src: icon5 },
+  { src: icon6 },
+  { src: icon7, bgc: "black", scale: "50%" },
+  { src: icon8, bgc: "rgb(0,60,140)" },
+  { src: icon9 }
 ];

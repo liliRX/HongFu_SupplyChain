@@ -10,8 +10,8 @@
         crossFade: true
       }"
       :pagination="{
-        clickable: true,
-        renderBullet
+        // clickable: true,
+        // renderBullet
       }"
       :autoplay="{
         delay: 3000,

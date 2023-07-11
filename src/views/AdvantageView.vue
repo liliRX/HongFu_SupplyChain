@@ -70,7 +70,6 @@ const activeLi = ref("战略合作");
   .mySwiper {
     margin-top: 40px;
     padding-bottom: 80px;
-    overflow: visible !important;
   }
 
   .adv_container_active {
@@ -203,7 +202,6 @@ const activeLi = ref("战略合作");
     .mySwiper {
       margin-top: 0px;
       padding-bottom: 50px;
-      overflow: visible !important;
       width: 80%;
 
       .swiper-slide {

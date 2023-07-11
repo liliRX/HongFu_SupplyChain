@@ -2,13 +2,22 @@
   <div id="Customer" class="media_container">
     <SecondTitle chinese-title="我们的客户" english-title="Customer" />
     <div class="brand_container">
-      <img
-        :src="icon"
+      <div
         class="brandIcon"
-        alt=""
         v-for="(icon, index) in brandIcons"
         :key="`${index}-brandIcon`"
-      />
+        :style="{
+          'background-color': icon.bgc
+        }"
+      >
+        <img
+          :style="{
+            scale: icon.scale
+          }"
+          :src="icon.src"
+          alt=""
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +42,16 @@ import { brandIcons } from "@/utils/common.js";
       border: 1px solid rgba(193, 192, 192, 0.6);
       width: 32%;
       margin-bottom: 20px;
-      height: 100px;
+      height: 160px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        scale: 65%;
+      }
     }
   }
 }
