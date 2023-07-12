@@ -1,17 +1,11 @@
 <template>
   <template v-if="!isMobile">
     <header :class="`header_container ${headerActive ? 'header_active' : ''}`">
-      <div class="out-body">
-        <div class="body">
-          <HeaderView @setHeaderActive="judgeIsTop" />
-        </div>
-      </div>
+      <ScaleWrapper>
+        <HeaderView @setHeaderActive="judgeIsTop" />
+      </ScaleWrapper>
     </header>
-    <div class="out-body">
-      <div class="body">
-        <Layout />
-      </div>
-    </div>
+    <Layout />
   </template>
   <div class="app" v-else>
     <HeaderView />
@@ -27,6 +21,7 @@ import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 import HeaderView from "@/views/HeaderView.vue";
 import { routeMap } from "@/utils/common.js";
+import ScaleWrapper from "@/components/ScaleWrapper.vue";
 
 const store = useScaleStore();
 const positionStore = usePositionStore();
@@ -96,7 +91,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .header_container {
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
   top: 0;
   transition: all 0.2s linear;

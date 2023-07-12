@@ -1,12 +1,14 @@
 <template>
   <template v-if="pathname === '/'">
-    <HomeSwiper />
-    <AboutUsView />
-    <DevelopHistory />
-    <ServiceView />
-    <AdvantageView />
-    <Customer />
-    <FooterView />
+    <ScaleWrapper>
+      <HomeSwiper />
+      <AboutUsView />
+      <DevelopHistory />
+      <ServiceView />
+      <AdvantageView />
+      <Customer />
+      <FooterView />
+    </ScaleWrapper>
   </template>
   <template v-else>
     <ECommerceCloudWarehouse />
