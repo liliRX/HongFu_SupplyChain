@@ -1,31 +1,25 @@
 <template>
-  <template v-if="!isMobile">
+  <div :class="isMobile ? 'app' : ''">
     <header :class="`header_container ${headerActive ? 'header_active' : ''}`">
-      <ScaleWrapper>
-        <HeaderView @setHeaderActive="judgeIsTop" />
-      </ScaleWrapper>
+      <HeaderView @setHeaderActive="judgeIsTop" />
     </header>
-    <Layout />
-  </template>
-  <div class="app" v-else>
-    <HeaderView />
     <Layout />
   </div>
 </template>
 
 <script setup>
 import Layout from "@/layout/LayoutView.vue";
-import { onBeforeMount, onMounted, ref } from "vue";
+import { onBeforeMount, onMounted, provide, ref } from "vue";
 import { setRate, sumBeforeIndex } from "@/utils/utils.js";
 import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 import HeaderView from "@/views/HeaderView.vue";
 import { routeMap } from "@/utils/common.js";
-import ScaleWrapper from "@/components/ScaleWrapper.vue";
 
 const store = useScaleStore();
-const positionStore = usePositionStore();
 const { isMobile, rate } = storeToRefs(store);
+provide("isMobile", isMobile);
+const positionStore = usePositionStore();
 const { setScaleRate, setIsMobile } = store;
 const { setPosition } = positionStore;
 const headerActive = ref(false);
@@ -104,17 +98,6 @@ onMounted(() => {
   -webkit-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
   -moz-box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
   box-shadow: 0 1px 2px 0 rgba(30, 30, 30, 0.59);
-}
-
-.body {
-  width: 1584px;
-  transform-origin: top left;
-}
-
-.out-body {
-  //overflow-y: hidden;
-  //overflow-x: hidden;
-  transition: all 0.2s linear;
 }
 
 .app {

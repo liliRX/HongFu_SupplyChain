@@ -6,19 +6,16 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import swiperBg from "@/assets/img/about_num_bg.png";
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import SecondTitle from "@/components/SecondTitle.vue";
-import { storeToRefs } from "pinia";
-import { useScaleStore } from "@/store/scalerate_store.js";
 
 const modules = [Pagination, Navigation, A11y];
-const store = useScaleStore();
-const { isMobile } = storeToRefs(store);
+const isMobile = inject("isMobile");
 const activeLi = ref("战略合作");
 </script>
 
 <template>
-  <div id="Advantage">
+  <div id="Advantage" :class="`Advantage ${isMobile ? 'AdvantageMobile' : ''}`">
     <SecondTitle chinese-title="我们的优势" english-title="Advantage" />
     <swiper
       :spaceBetween="isMobile ? 20 : 40"
@@ -31,7 +28,7 @@ const activeLi = ref("战略合作");
         prevEl: '.swiper-button-prev'
       }"
       :modules="modules"
-      class="mySwiper media_container"
+      :class="`mySwiper media_container`"
     >
       <swiper-slide
         :key="`history_swiper_${index}`"
@@ -64,7 +61,7 @@ const activeLi = ref("战略合作");
 @import "@/assets/media_container.scss";
 @import "@/assets/font.scss";
 
-#Advantage {
+.Advantage {
   margin-top: 100px;
 
   .mySwiper {
@@ -194,52 +191,50 @@ const activeLi = ref("战略合作");
   }
 }
 
-@media (max-width: 767px) {
-  #Advantage {
-    margin-top: 40px;
-    padding-bottom: 0;
+.AdvantageMobile {
+  margin-top: 40px;
+  padding-bottom: 0;
 
-    .mySwiper {
-      margin-top: 0px;
-      padding-bottom: 50px;
-      width: 80%;
+  .mySwiper {
+    margin-top: 0px;
+    padding-bottom: 50px;
+    width: 90%;
 
-      .swiper-slide {
-        //width: 90% !important;
-      }
+    .swiper-slide {
+      //width: 90% !important;
+    }
+  }
+
+  .adv_container {
+    padding: 20px;
+    height: 330px;
+
+    .title {
+      font-size: 38px;
     }
 
-    .adv_container {
-      padding: 20px;
-      height: 330px;
-
-      .title {
-        font-size: 38px;
-      }
-
-      p {
-        font-size: 18px;
-        letter-spacing: 3px;
-        line-height: 34px;
-      }
+    p {
+      font-size: 18px;
+      letter-spacing: 3px;
+      line-height: 34px;
     }
+  }
 
-    .swiper-pagination-progressbar {
-      width: 80%;
+  .swiper-pagination-progressbar {
+    width: 80%;
+  }
+
+  .swiper-button-prev {
+    i {
+      font-size: 19px;
     }
+  }
 
-    .swiper-button-prev {
-      i {
-        font-size: 19px;
-      }
-    }
+  .swiper-button-next {
+    left: 30px;
 
-    .swiper-button-next {
-      left: 30px;
-
-      i {
-        font-size: 19px;
-      }
+    i {
+      font-size: 19px;
     }
   }
 }

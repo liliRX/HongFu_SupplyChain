@@ -21,7 +21,7 @@
       :modules="modules"
       @init="init"
       @slideChange="slideChange"
-      class="mySwiper"
+      :class="`mySwiper ${isMobile ? 'mySwiperMobile' : ''}`"
     >
       <swiper-slide
         :key="`src_${index}`"
@@ -48,8 +48,9 @@ import "swiper/scss/effect-fade";
 import service_slide1 from "@/assets/img/swiper_pic01.jpg";
 import service_slide2 from "@/assets/img/swiper_pic02.jpg";
 import service_slide3 from "@/assets/img/swiper-pic03.jpg";
-import title from "@/assets/img/home_title.png";
+import { inject } from "vue";
 
+const isMobile = inject("isMobile");
 const modules = [Autoplay, Pagination, Navigation, A11y, EffectFade];
 
 const swiperSlides = [
@@ -232,24 +233,22 @@ $color: rgb(43, 121, 237);
     }
   }
 
-  @media (max-width: 767px) {
-    .mySwiper {
-      margin-top: 70px;
-      height: calc(100vh - 70px);
+  .mySwiperMobile {
+    margin-top: 70px;
+    height: calc(100vh - 70px);
 
-      .swiper-slide {
-        .swiper_title {
-          width: 80%;
-          margin-left: 0;
-          left: 4%;
-          font-size: 24px;
-          line-height: 48px;
-        }
+    .swiper-slide {
+      .swiper_title {
+        width: 80%;
+        margin-left: 0;
+        left: 4%;
+        font-size: 24px;
+        line-height: 48px;
       }
+    }
 
-      .swiper-pagination {
-        font-size: 13px;
-      }
+    .swiper-pagination {
+      font-size: 13px;
     }
   }
 }

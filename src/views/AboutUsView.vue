@@ -1,12 +1,20 @@
 <script setup>
 import AboutDetail from "../components/AboutDetail.vue";
+import { inject } from "vue";
+
+const isMobile = inject("isMobile");
 </script>
 
 <template>
-  <div :class="`about-container media_container`" id="aboutUs">
+  <div
+    :class="`about-container ${
+      isMobile ? 'about_container_mobile' : 'media_container'
+    }`"
+    id="aboutUs"
+  >
     <h2 class="title">关于我们</h2>
     <div class="about_us">
-      <img src="../assets/img/swiper_pic02.jpg" alt="" />
+      <img src="../assets/img/aboutUs.png" alt="" />
       <p class="text">
         鸿福供应链是一家致力于为客户提供端到端数智化供应链解决方案的物流科技企业，通过建立端到端全链路数智化的物流运营迭代能力，为客户提供从原料至成品的生产精益物流，线上线下一盘货，Tob/C一体化，仓干配一体化及送装一体化服务的系统解决方案，协助企业推动渠道变革与供应链效率优化，提升竞争优势，助力客户实现可持续性发展。
       </p>
@@ -64,37 +72,39 @@ import AboutDetail from "../components/AboutDetail.vue";
     background-repeat: no-repeat;
     background-size: 38%;
   }
+}
 
-  @media (max-width: 767px) {
-    margin-top: 40px;
-    .title {
-      text-align: center;
-      margin-bottom: 30px;
+.about_container_mobile {
+  margin-top: 40px;
 
-      &::after {
-        display: none;
-      }
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+
+    &::after {
+      display: none;
     }
+  }
 
-    > .about_us {
-      display: flex;
-      flex-direction: column;
+  > .about_us {
+    display: flex;
+    flex-direction: column;
 
-      > .text {
-        margin: 20px 15px;
-        line-height: 35px;
-        letter-spacing: 2px;
-      }
+    > .text {
+      margin: 20px 15px;
+      line-height: 35px;
+      letter-spacing: 2px;
     }
-    > .animate {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 20px 20px 0;
-      background-image: url("@/assets/img/about_num_bg.png");
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 80%;
-    }
+  }
+
+  > .animate {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 20px 0;
+    background-image: url("@/assets/img/about_num_bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80%;
   }
 }
 </style>

@@ -9,6 +9,7 @@ import {
 } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 import { goPage, setRate } from "@/utils/utils.js";
+import ScaleWrapper from "@/components/ScaleWrapper.vue";
 import HeaderHumbergerButton from "@/components/HeaderHumbergerButton.vue";
 
 const pathname = window.location.pathname.substring(1);
@@ -60,7 +61,11 @@ const goModule = (id) => {
       window.scroll({ top, behavior: "smooth" });
     }
   } else {
-    goPage(window.location.href + id);
+    const url =
+      window.location.href.indexOf(id) > 0
+        ? window.location.href
+        : window.location.href + id;
+    goPage(url);
   }
 };
 
@@ -92,118 +97,116 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="header" ref="headerRef">
-    <img class="hf-logo" :src="hongFu_logo" alt="" />
-    <ol class="nav" v-if="!isMobile">
-      <li
-        @mouseenter="li.children && onHover()"
-        @mouseleave="li.children && onLeave()"
-        @click="() => goModule(li.route)"
-        :class="`${activeLi === li.route ? 'active' : ''}`"
-        :key="li.route"
-        v-for="li in routeMap"
-      >
-        {{ li.title }}
-        <ol class="child" v-if="li.children">
-          <li
-            :class="`childLi ${activeLi === child.route ? 'active' : ''}`"
-            @click="
-              (e) => {
-                e.stopPropagation();
-                goModule(child.route);
-              }
-            "
-            v-for="child in li.children"
-          >
-            {{ child.title }}
-          </li>
-        </ol>
-      </li>
-    </ol>
-    <HeaderHumbergerButton v-else />
-  </div>
+  <ScaleWrapper>
+    <div :class="`${isMobile ? 'headerMobile' : 'header'}`" ref="headerRef">
+      <img class="hf-logo" :src="hongFu_logo" alt="" />
+      <ol class="nav" v-if="!isMobile">
+        <li
+          @mouseenter="li.children && onHover()"
+          @mouseleave="li.children && onLeave()"
+          @click="() => goModule(li.route)"
+          :class="`${activeLi === li.route ? 'active' : ''}`"
+          :key="li.route"
+          v-for="li in routeMap"
+        >
+          {{ li.title }}
+          <ol class="child" v-if="li.children">
+            <li
+              :class="`childLi ${activeLi === child.route ? 'active' : ''}`"
+              @click="
+                (e) => {
+                  e.stopPropagation();
+                  goModule(child.route);
+                }
+              "
+              v-for="child in li.children"
+            >
+              {{ child.title }}
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <HeaderHumbergerButton v-else />
+    </div>
+  </ScaleWrapper>
 </template>
 
 <style lang="scss" scoped>
-@media (min-width: 768px) {
-  .hoverHeader {
-    height: 120px !important;
+.hoverHeader {
+  height: 120px !important;
 
-    .child {
-      opacity: 100 !important;
-    }
+  .child {
+    opacity: 100 !important;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  height: 90px;
+  width: 1300px;
+  margin: auto;
+
+  .hf-logo {
+    display: flex;
+    width: 260px;
+    height: 70px;
   }
 
-  .header {
+  .nav {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    height: 90px;
-    width: 1300px;
-    margin: auto;
+    height: 70px;
+    align-items: center;
 
-    .hf-logo {
-      display: flex;
-      width: 260px;
-      height: 70px;
+    .child {
+      position: absolute;
+      margin-top: 3px;
+      padding: 15px 0 20px;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.4s linear;
+
+      .childLi {
+        font-size: 16px;
+      }
     }
 
-    .nav {
-      display: flex;
-      height: 70px;
-      align-items: center;
+    .active {
+      border-bottom: 3px solid red;
+    }
 
-      .child {
-        position: absolute;
-        margin-top: 3px;
-        padding: 15px 0 20px;
-        width: 100%;
-        text-align: center;
-        opacity: 0;
-        transition: all 0.4s linear;
+    > li {
+      border-bottom: 3px solid transparent;
+      position: relative;
+      padding-bottom: 3px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 34px;
+      transition: all 0.4s linear;
 
-        .childLi {
-          font-size: 16px;
-        }
-      }
-
-      .active {
+      &:hover {
         border-bottom: 3px solid red;
-      }
-
-      > li {
-        border-bottom: 3px solid transparent;
-        position: relative;
-        padding-bottom: 3px;
-        font-size: 20px;
-        cursor: pointer;
-        margin-left: 34px;
-        transition: all 0.4s linear;
-
-        &:hover {
-          border-bottom: 3px solid red;
-        }
       }
     }
   }
 }
 
-@media (max-width: 767px) {
-  .header {
-    background-color: #fff;
-    width: 100%;
-    z-index: 10;
-    top: 0;
-    position: fixed;
-    padding: 10px 10px 10px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.headerMobile {
+  background-color: #fff;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  position: fixed;
+  padding: 10px 10px 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .hf-logo {
-      width: 180px;
-      height: 50px;
-    }
+  .hf-logo {
+    width: 180px;
+    height: 50px;
   }
 }
 </style>

@@ -2,10 +2,18 @@
 import ServiceList from "../components/ServiceList.vue";
 import { services } from "../utils/common.js";
 import SecondTitle from "../components/SecondTitle.vue";
+import { inject } from "vue";
+
+const isMobile = inject("isMobile");
 </script>
 
 <template>
-  <div class="service-container media_container" id="centerServices">
+  <div
+    :class="`service-container ${
+      isMobile ? 'centerServicesMobile' : 'media_container'
+    }`"
+    id="centerServices"
+  >
     <SecondTitle chinese-title="核心服务" english-title="Service" />
     <div class="service-list">
       <ServiceList
@@ -42,15 +50,13 @@ import SecondTitle from "../components/SecondTitle.vue";
   }
 }
 
-@media (max-width: 767px) {
-  .service-container {
-    padding: 0 10px;
-    margin-top: 40px;
+.centerServicesMobile {
+  padding: 0 10px;
+  margin-top: 40px;
 
-    > .service-list {
-      display: flex;
-      flex-direction: column;
-    }
+  > .service-list {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

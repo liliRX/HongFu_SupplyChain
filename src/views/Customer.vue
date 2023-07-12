@@ -1,5 +1,8 @@
 <template>
-  <div id="Customer" class="media_container">
+  <div
+    id="Customer"
+    :class="`customer ${isMobile ? 'customerMobile' : 'media_container'}`"
+  >
     <SecondTitle chinese-title="我们的客户" english-title="Customer" />
     <div class="brand_container">
       <div
@@ -25,12 +28,15 @@
 <script setup>
 import SecondTitle from "@/components/SecondTitle.vue";
 import { brandIcons } from "@/utils/common.js";
+import { inject } from "vue";
+
+const isMobile = inject("isMobile");
 </script>
 
 <style lang="scss" scoped>
 @import "src/assets/media_container";
 
-#Customer {
+.customer {
   margin-top: 100px;
 
   .brand_container {
@@ -56,17 +62,15 @@ import { brandIcons } from "@/utils/common.js";
   }
 }
 
-@media (max-width: 767px) {
-  #Customer {
-    margin-top: 40px;
-    padding: 0 20px;
+.customerMobile {
+  margin-top: 40px;
+  padding: 0 20px;
 
-    .brand_container {
-      .brandIcon {
-        margin-bottom: 0;
-        width: 33.33%;
-        height: 64px;
-      }
+  .brand_container {
+    .brandIcon {
+      margin-bottom: 0;
+      width: 33.33%;
+      height: 64px;
     }
   }
 }

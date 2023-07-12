@@ -1,5 +1,8 @@
 <template>
-  <div class="link_container" id="linkUs">
+  <div
+    :class="`link_container ${isMobile ? 'link_containerMobile' : ''}`"
+    id="linkUs"
+  >
     <MyMap :location="location" />
     <div class="flex-box">
       <h2>联系我们</h2>
@@ -32,7 +35,9 @@
 import { goNewPage } from "@/utils/utils.js";
 import { linkUsInfo } from "@/utils/common.js";
 import MyMap from "@/components/MyMap.vue";
-import { onUpdated, ref, watch } from "vue";
+import { inject, onUpdated, ref, watch } from "vue";
+
+const isMobile = inject("isMobile");
 
 const activeMap = ref(linkUsInfo[0]);
 
@@ -136,15 +141,13 @@ $color: white;
   }
 }
 
-@media (max-width: 767px) {
-  .link_container {
-    margin-top: 40px;
+.link_containerMobile {
+  margin-top: 40px;
 
-    .flex-box {
-      right: 50%;
-      transform: translate(50%, -50%);
-      width: 90%;
-    }
+  .flex-box {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 90%;
   }
 }
 </style>

@@ -4,6 +4,7 @@ import pic03 from "@/assets/img/service-pic03.png";
 import pic04 from "@/assets/img/service-pic04.png";
 import transport from "@/assets/img/transport.jpg";
 import store from "@/assets/img/store.png";
+import eCommerceCloudWareHouse from "@/assets/img/eCommerceCloudWarehouse.jpg";
 import systemConnect from "@/assets/ecommerce_cloud_warehouse/system_connect.png";
 
 //定义动画字体的数据
@@ -19,7 +20,7 @@ export const aboutUs = [
 export const services = [
   { url: transport, type: "干线运输" },
   {
-    url: pic02,
+    url: eCommerceCloudWareHouse,
     type: "电商云仓",
     route: "eCommerceCloudWarehouse"
   },

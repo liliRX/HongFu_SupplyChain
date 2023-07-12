@@ -1,45 +1,49 @@
 <template>
   <div id="ECommerceCloudWarehouse">
-    <div class="header">
-      <img class="img" src="@/assets/img/ecommerce-bg.jpg" alt="" />
-      <div class="img_text">
-        <p class="p1">电商云仓</p>
-        <p class="p2">一站式电商仓配</p>
-      </div>
-    </div>
-    <div class="intro">
-      <div class="intro_img">
-        <p class="subtitle">仓配一体化服务</p>
-        <img src="@/assets/img/process.png" alt="仓配流程图" />
-      </div>
-      <div class="grid-container">
-        <div class="left">
-          <div class="image-container">
-            <img
-              src="@/assets/ecommerce_cloud_warehouse/ecommerceStore.png"
-              alt="电商仓储"
-            />
-            <div class="title">电商仓储</div>
-          </div>
+    <ScaleWrapper>
+      <div class="header">
+        <img class="img" src="@/assets/img/ecommerce-bg.jpg" alt="" />
+        <div class="img_text">
+          <p class="p1">电商云仓</p>
+          <p class="p2">一站式电商仓配</p>
         </div>
-        <div class="right">
-          <div v-for="image in images" :key="image.id" class="image-item">
+      </div>
+      <div class="intro">
+        <div class="intro_img">
+          <p class="subtitle">仓配一体化服务</p>
+          <img src="@/assets/img/process.png" alt="仓配流程图" />
+        </div>
+        <div class="grid-container">
+          <div class="left">
             <div class="image-container">
-              <img class="right_img" :src="image.src" />
-              <div class="title">{{ image.title }}</div>
-              <div class="overlay" />
+              <img
+                src="@/assets/ecommerce_cloud_warehouse/ecommerceStore.png"
+                alt="电商仓储"
+              />
+              <div class="title">电商仓储</div>
+            </div>
+          </div>
+          <div class="right">
+            <div v-for="image in images" :key="image.id" class="image-item">
+              <div class="image-container">
+                <img class="right_img" :src="image.src" />
+                <div class="title">{{ image.title }}</div>
+                <div class="overlay" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="intro_video">
-        <p class="subtitle">仓储视频位置</p>
-        <div class="video_container">
-          <videoPlay
-            v-bind="options"
-            poster="https://cdn.jsdelivr.net/gh/xdlumia/files/video-play/ironMan.jpg"
-          />
+        <div class="intro_video">
+          <p class="subtitle">仓储视频位置</p>
         </div>
+      </div>
+    </ScaleWrapper>
+    <div class="video_container">
+      <div class="video">
+        <videoPlay
+          v-bind="options"
+          poster="https://cdn.jsdelivr.net/gh/xdlumia/files/video-play/ironMan.jpg"
+        />
       </div>
     </div>
   </div>
@@ -48,15 +52,41 @@
 <script setup>
 import { images } from "@/utils/common.js";
 import "vue3-video-play/dist/style.css";
+import store_video from "@/assets/video/store_video.mp4";
 import { videoPlay } from "vue3-video-play";
 import { onMounted, onUpdated, reactive, watch } from "vue";
+import ScaleWrapper from "@/components/ScaleWrapper.vue";
+import { useScaleStore } from "@/store/scalerate_store.js";
+import { storeToRefs } from "pinia";
+
+const store = useScaleStore();
+const { isMobile, rate } = storeToRefs(store);
+
+// 设置视频的宽高比
+const setVideo = () => {
+  const video = document.querySelector(".video");
+  video.style.height = 500 * rate.value + "px";
+  video.style.width = 1320 * rate.value + "px";
+  window.scrollTo(0, 0);
+};
+
+onMounted(() => {
+  setVideo();
+});
+
+watch(
+  () => rate.value,
+  () => {
+    setVideo();
+  }
+);
 
 const options = reactive({
   width: `100%`, //播放器宽度
   height: `100%`, //播放器高度
   color: "red", //主题色
   title: "", //视频名称
-  src: "https://cdn.jsdelivr.net/gh/xdlumia/files/video-play/IronMan.mp4", //视频源
+  src: store_video, //视频源
   muted: false, //静音
   webFullScreen: false,
   speedRate: ["0.75", "1.0", "1.25", "1.5", "2.0"], //播放倍速
@@ -135,7 +165,7 @@ $sectionImgHeight: 400px;
   }
 
   .intro {
-    width: 90%;
+    width: 1320px;
     margin: 50px auto 0;
 
     .intro_img {
@@ -216,13 +246,16 @@ $sectionImgHeight: 400px;
 
   .intro_video {
     margin-top: 60px;
-    padding: 20px;
     overflow: hidden;
+  }
+}
 
-    .video_container {
-      width: 100%;
-      height: 500px;
-    }
+.video_container {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+  .video {
   }
 }
 </style>

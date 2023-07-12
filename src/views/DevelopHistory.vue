@@ -1,5 +1,8 @@
 <template>
-  <div id="history" class="media_container">
+  <div
+    id="history"
+    :class="`history ${isMobile ? 'historyMobile' : 'media_container'}`"
+  >
     <SecondTitle chinese-title="发展历程" english-title="Development" />
     <div class="swiperBG">
       <div class="swiperContainer">
@@ -49,12 +52,10 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import { historySwiper } from "@/utils/common.js";
 import SecondTitle from "@/components/SecondTitle.vue";
-import { storeToRefs } from "pinia";
-import { useScaleStore } from "@/store/scalerate_store.js";
+import { inject } from "vue";
 
 const modules = [Autoplay, Pagination, Navigation, A11y];
-const store = useScaleStore();
-const { isMobile } = storeToRefs(store);
+const isMobile = inject("isMobile");
 
 const renderBullet = function (index, className) {
   return `<span class="${className}"><b>${historySwiper[index].time}</b></span>`;
@@ -72,7 +73,7 @@ $swiperImgHeight: 240px;
 $paginationMobilePadding: 60px;
 $paginationMobileHeight: 80px;
 
-#history {
+.history {
   margin-top: 100px;
 
   > header {
@@ -201,92 +202,89 @@ $paginationMobileHeight: 80px;
       }
     }
   }
+}
 
-  @media (max-width: 767px) {
-    margin-top: 40px;
-    .swiperBG {
-      background-color: white;
-      position: relative;
-    }
+.historyMobile {
+  margin-top: 40px;
 
-    .swiperContainer {
-      background-color: white;
-      transform: none;
-      border: none;
-      scale: 95%;
-      height: initial;
-      position: relative;
-      padding: 20px 0;
-      z-index: 1;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-    }
+  .swiperBG {
+    background-color: white;
+    position: relative;
+  }
 
-    .swiperAside {
-      display: none;
-    }
+  .swiperContainer {
+    background-color: white;
+    transform: none;
+    border: none;
+    scale: 95%;
+    height: initial;
+    position: relative;
+    padding: 20px 0;
+    z-index: 1;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
 
-    .mySwiper {
-      padding: 0;
+  .swiperAside {
+    display: none;
+  }
 
-      .historyLi {
-        height: 100%;
+  .mySwiper {
+    padding: 0;
 
-        .history_description {
-          margin-left: 0;
+    .historyLi {
+      height: 100%;
 
-          h1 {
-            margin-bottom: 10px;
-            font-size: 25px;
-          }
+      .history_description {
+        margin-left: 0;
 
-          p {
-            font-size: 20px;
-            line-height: 34px;
-          }
+        h1 {
+          margin-bottom: 10px;
+          font-size: 25px;
         }
 
-        padding: calc($paginationMobileHeight / 2 + 30px)
-          $paginationMobilePadding 0;
-        display: block;
-      }
-
-      .swiper-button-prev {
-        left: 10px;
-
-        &::after {
-          font-size: 32px;
+        p {
+          font-size: 20px;
+          line-height: 34px;
         }
       }
 
-      .swiper-button-next {
-        right: 10px;
+      padding: calc($paginationMobileHeight / 2 + 30px) $paginationMobilePadding
+        0;
+      display: block;
+    }
 
-        &::after {
-          font-size: 32px;
+    .swiper-button-prev {
+      left: 10px;
+
+      &::after {
+        font-size: 32px;
+      }
+    }
+
+    .swiper-button-next {
+      right: 10px;
+
+      &::after {
+        font-size: 32px;
+      }
+    }
+
+    .swiper-pagination {
+      width: 100%;
+      height: $paginationMobileHeight;
+
+      .swiper-pagination-bullet {
+        width: 20px;
+        height: 20px;
+
+        > b {
+          top: -25px;
+          font-size: 14px;
         }
       }
 
-      .swiper-pagination {
-        width: 100%;
-        height: $paginationMobileHeight;
-
-        .swiper-pagination-bullet {
-          width: 20px;
-          height: 20px;
-
-          > b {
-            top: -25px;
-            font-size: 14px;
-          }
-        }
-
-        &::after {
-          background-image: radial-gradient(
-            circle,
-            $active 15%,
-            transparent 15%
-          );
-        }
+      &::after {
+        background-image: radial-gradient(circle, $active 15%, transparent 15%);
       }
     }
   }

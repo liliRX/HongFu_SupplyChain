@@ -24,6 +24,7 @@ import HomeSwiper from "@/views/HomeSwiper.vue";
 import DevelopHistory from "@/views/DevelopHistory.vue";
 import ECommerceCloudWarehouse from "@/views/EcommerceCloudWarehouse/ECommerceCloudWarehouse.vue";
 import Customer from "@/views/Customer.vue";
+import ScaleWrapper from "@/components/ScaleWrapper.vue";
 
 const pathname = window.location.pathname;
 </script>
