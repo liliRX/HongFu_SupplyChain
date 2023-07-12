@@ -1,20 +1,22 @@
+@import "_variables.scss";
+
 @font-face {
   font-family: Oblique;
   src: local("Oblique"),
-  url("@/assets/font/SmileySans-Oblique-2.ttf") format("truetype");
+  url("#{$source-url}/font/SmileySans-Oblique-2.ttf") format("truetype");
 }
 
 @font-face {
   font-family: douyuFont;
-  src: local("douyuFont"), url("@/assets/font/douyuFont-2.otf");
+  src: local("douyuFont"), url("#{$source-url}/font/douyuFont-2.otf");
 }
 
 @font-face {
   font-family: Alibaba;
-  src: local("Alibaba"), url("@/assets/font/AlibabaPuHuiTi-3-85-Bold.ttf");
+  src: local("Alibaba"), url("#{$source-url}/font/AlibabaPuHuiTi-3-85-Bold.ttf");
 }
 
 @font-face {
   font-family: PangMen;
-  src: local("PangMen"), url("@/assets/font/PangMenZhengDaoBiaoTiTi-1.ttf");
+  src: local("PangMen"), url("#{$source-url}/font/PangMenZhengDaoBiaoTiTi-1.ttf");
 }

@@ -16,7 +16,7 @@ watch(aboutUsFirstComing, () => {
 });
 
 const theFormat = (number) => {
-  return number > 1000 ? "1000+" : Math.round(number);
+  return number === 60 ? "60+" : Math.round(number).toLocaleString();
 };
 
 const setRefMap = (el, item) => {

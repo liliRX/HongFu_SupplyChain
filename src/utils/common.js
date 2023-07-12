@@ -1,31 +1,27 @@
-import pic01 from "@/assets/img/service-pic01.png";
-import pic02 from "@/assets/img/service-pic02.png";
-import pic03 from "@/assets/img/service-pic03.png";
-import pic04 from "@/assets/img/service-pic04.png";
-import transport from "@/assets/img/transport.jpg";
-import store from "@/assets/img/store.png";
-import eCommerceCloudWareHouse from "@/assets/img/eCommerceCloudWarehouse.jpg";
-import systemConnect from "@/assets/ecommerce_cloud_warehouse/system_connect.png";
+export const source_url =
+  window.location.hostname === "1231"
+    ? ""
+    : "http://192.168.222.232:8002/static_resource_file/hongfu_official_website";
 
 //定义动画字体的数据
 /* jshint esversion: 6 */
 export const aboutUs = [
   { num: "9", add: "年", info: "成立于2014年" },
-  { num: "1120", add: "", info: "客户" },
-  { num: "200", add: "", info: "全国仓点" },
-  { num: "500", add: "万M2", info: "仓库面积" }
+  { num: "60", add: "", info: "网络覆盖线路" },
+  { num: "200000", add: "平方米", info: "仓库面积" },
+  { num: "500", add: "万单", info: "单日运营承载" }
 ];
 
 //定义核心服务的数据
 export const services = [
-  { url: transport, type: "干线运输" },
+  { url: `${source_url}/img/transport.jpg`, type: "干线运输" },
   {
-    url: eCommerceCloudWareHouse,
+    url: `${source_url}/img/eCommerceCloudWarehouse.jpg`,
     type: "电商云仓",
     route: "eCommerceCloudWarehouse"
   },
-  { url: pic03, type: "城市配送" },
-  { url: store, type: "仓储物流" }
+  { url: `${source_url}/img/service-pic03.png`, type: "城市配送" },
+  { url: `${source_url}/img/store.png`, type: "仓储物流" }
 ];
 
 //define the data of advantage
@@ -57,33 +53,33 @@ export const historySwiper = [
   {
     time: "2014",
     title: "成立",
-    url: pic01,
+    url: `${source_url}/img/service-pic01.png`,
     description:
       "公司成立于2014年，承接纳爱斯集团干线运输业务，业务线路覆盖浙江、江西、广东、福建、安徽。年营收3000万+"
   },
   {
     time: "2020",
     title: "开拓",
-    url: pic02,
+    url: `${source_url}/img/service-pic01.png`,
     description:
       "开拓电商仓配业务，在丽水开设电商仓，承接纳爱斯电商C端线上订单。 年营收3500万+"
   },
   {
     time: "2021",
     title: "发展",
-    url: pic03,
+    url: `${source_url}/img/service-pic01.png`,
     description: "开设河南分仓,年营收5000万+"
   },
   {
     time: "2022",
     title: "深耕",
-    url: pic04,
+    url: `${source_url}/img/service-pic01.png`,
     description: "开设山东分仓,年营收6000万+"
   },
   {
     time: "2023+",
     title: "未来",
-    url: pic01,
+    url: `${source_url}/img/service-pic01.png`,
     description:
       "全国多地成立运营点，形成覆盖全国的物流网，满足客户的各项个性化供应链需求"
   }
@@ -144,49 +140,43 @@ export const linkUsInfo = [
 export const images = [
   {
     id: 2,
-    src: pic01,
+    src: `${source_url}/img/service-pic01.png`,
     alt: "冷链仓配一体化",
     title: "冷链仓配一体化"
   },
   {
     id: 3,
-    src: pic02,
+    src: `${source_url}/img/service-pic01.png`,
     alt: "一件代发",
     title: "一件代发"
   },
   {
     id: 4,
-    src: pic03,
+    src: `${source_url}/img/service-pic01.png`,
     alt: "增值服务",
     title: "增值服务"
   },
   {
     id: 5,
-    src: systemConnect,
+    src: `${source_url}/ecommerce_cloud_warehouse/system_connect.png`,
     alt: "系统对接",
     title: "系统对接"
   }
 ];
 
 //brandIcons
-import icon1 from "@/assets/brand_icons/icon1.png";
-import icon2 from "@/assets/brand_icons/icon2.png";
-import icon3 from "@/assets/brand_icons/icon3.png";
-import icon4 from "@/assets/brand_icons/icon4.png";
-import icon5 from "@/assets/brand_icons/icon5.png";
-import icon6 from "@/assets/brand_icons/icon6.png";
-import icon7 from "@/assets/brand_icons/icon7.png";
-import icon8 from "@/assets/brand_icons/icon8.png";
-import icon9 from "@/assets/brand_icons/icon9.png";
-
 export const brandIcons = [
-  { src: icon1 },
-  { src: icon2 },
-  { src: icon3, bgc: "rgb(252,201,0)", scale: "60%" },
-  { src: icon4 },
-  { src: icon5 },
-  { src: icon6 },
-  { src: icon7, bgc: "black", scale: "50%" },
-  { src: icon8, bgc: "rgb(0,60,140)" },
-  { src: icon9 }
+  { src: `${source_url}/brand_icons/icon1.png` },
+  { src: `${source_url}/brand_icons/icon2.png` },
+  {
+    src: `${source_url}/brand_icons/icon3.png`,
+    bgc: "rgb(252,201,0)",
+    scale: "60%"
+  },
+  { src: `${source_url}/brand_icons/icon4.png` },
+  { src: `${source_url}/brand_icons/icon5.png` },
+  { src: `${source_url}/brand_icons/icon6.png` },
+  { src: `${source_url}/brand_icons/icon7.png`, bgc: "black", scale: "50%" },
+  { src: `${source_url}/brand_icons/icon8.png`, bgc: "rgb(0,60,140)" },
+  { src: `${source_url}/brand_icons/icon9.png` }
 ];

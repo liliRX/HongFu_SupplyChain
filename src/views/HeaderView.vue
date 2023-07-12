@@ -1,5 +1,4 @@
 <script setup>
-import hongFu_logo from "@/assets/img/hongfulogo.png";
 import { onMounted, onUnmounted, ref } from "vue";
 import { routeMap } from "@/utils/common.js";
 import {
@@ -9,6 +8,7 @@ import {
 } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 import { goPage, setRate } from "@/utils/utils.js";
+import { source_url } from "@/utils/common.js";
 import ScaleWrapper from "@/components/ScaleWrapper.vue";
 import HeaderHumbergerButton from "@/components/HeaderHumbergerButton.vue";
 
@@ -99,7 +99,7 @@ onUnmounted(() => {
 <template>
   <ScaleWrapper>
     <div :class="`${isMobile ? 'headerMobile' : 'header'}`" ref="headerRef">
-      <img class="hf-logo" :src="hongFu_logo" alt="" />
+      <img class="hf-logo" :src="`${source_url}/img/hongfulogo.png`" alt="" />
       <ol class="nav" v-if="!isMobile">
         <li
           @mouseenter="li.children && onHover()"

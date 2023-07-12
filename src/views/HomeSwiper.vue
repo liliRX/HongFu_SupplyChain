@@ -30,8 +30,7 @@
         <img class="slide_img" :src="slide.src" alt="" />
         <div class="swiper_title">
           <!--          <img :src="title" alt="" />-->
-          <div>发展源于<span>创造价值</span></div>
-          <div>为客户降本增效是公司发展的驱动力</div>
+          {{ slide.text }}
         </div>
       </swiper-slide>
     </swiper>
@@ -45,20 +44,26 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/effect-fade";
-import service_slide1 from "@/assets/img/swiper_pic01.jpg";
-import service_slide2 from "@/assets/img/swiper_pic02.jpg";
-import service_slide3 from "@/assets/img/swiper-pic03.jpg";
 import { inject } from "vue";
+import { source_url } from "@/utils/common.js";
 
 const isMobile = inject("isMobile");
 const modules = [Autoplay, Pagination, Navigation, A11y, EffectFade];
 
 const swiperSlides = [
-  { src: service_slide1 },
-  { src: service_slide2 },
-  { src: service_slide3 }
+  {
+    src: `${source_url}/img/home_swiper01.jpg`,
+    text: `
+        <div>
+          壮大源于<span>众志成城</span>
+        </div>
+        <div>—坚持关怀员工的理念是公司壮大的根本</div>`
+  },
+  {
+    src: `${source_url}/img/home_swiper02.jpg`,
+    text: "长久源于不懈努力—始终坚持向上拼搏的精神是公司长久的保障"
+  }
 ];
-
 const init = function () {
   setTimeout(function () {
     const swiperPagination = document.querySelector("#home .swiper-pagination");

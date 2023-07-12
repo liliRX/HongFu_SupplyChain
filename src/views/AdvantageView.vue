@@ -2,10 +2,10 @@
 import { advantages } from "../utils/common.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, A11y } from "swiper";
+import { source_url } from "../utils/common.js";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import swiperBg from "@/assets/img/about_num_bg.png";
 import { inject, ref } from "vue";
 import SecondTitle from "@/components/SecondTitle.vue";
 
@@ -40,7 +40,10 @@ const activeLi = ref("战略合作");
           }`"
           @mouseenter="() => (activeLi = slide.title)"
         >
-          <img :src="swiperBg" class="advantage_img" />
+          <img
+            :src="`${source_url}/img/about_num_bg.png`"
+            class="advantage_img"
+          />
           <div>
             <p class="description">{{ slide.description }}</p>
             <p class="title">{{ slide.title }}</p>

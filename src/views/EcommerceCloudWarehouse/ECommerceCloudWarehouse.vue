@@ -2,7 +2,7 @@
   <div id="ECommerceCloudWarehouse">
     <ScaleWrapper>
       <div class="header">
-        <img class="img" src="@/assets/img/ecommerce-bg.jpg" alt="" />
+        <img class="img" :src="`${source_url}/img/ecommerce-bg.jpg`" alt="" />
         <div class="img_text">
           <p class="p1">电商云仓</p>
           <p class="p2">一站式电商仓配</p>
@@ -11,13 +11,13 @@
       <div class="intro">
         <div class="intro_img">
           <p class="subtitle">仓配一体化服务</p>
-          <img src="@/assets/img/process.png" alt="仓配流程图" />
+          <img :src="`${source_url}/img/process.png`" alt="仓配流程图" />
         </div>
         <div class="grid-container">
           <div class="left">
             <div class="image-container">
               <img
-                src="@/assets/ecommerce_cloud_warehouse/ecommerceStore.png"
+                :src="`${source_url}/ecommerce_cloud_warehouse/ecommerceStore.png`"
                 alt="电商仓储"
               />
               <div class="title">电商仓储</div>
@@ -40,10 +40,7 @@
     </ScaleWrapper>
     <div class="video_container">
       <div class="video">
-        <videoPlay
-          v-bind="options"
-          poster="https://cdn.jsdelivr.net/gh/xdlumia/files/video-play/ironMan.jpg"
-        />
+        <videoPlay v-bind="options" />
       </div>
     </div>
   </div>
@@ -52,12 +49,12 @@
 <script setup>
 import { images } from "@/utils/common.js";
 import "vue3-video-play/dist/style.css";
-import store_video from "@/assets/video/store_video.mp4";
 import { videoPlay } from "vue3-video-play";
 import { onMounted, onUpdated, reactive, watch } from "vue";
 import ScaleWrapper from "@/components/ScaleWrapper.vue";
 import { useScaleStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
+import { source_url } from "@/utils/common.js";
 
 const store = useScaleStore();
 const { isMobile, rate } = storeToRefs(store);
@@ -86,7 +83,7 @@ const options = reactive({
   height: `100%`, //播放器高度
   color: "red", //主题色
   title: "", //视频名称
-  src: store_video, //视频源
+  src: `${source_url}/video/store_video.mp4`, //视频源
   muted: false, //静音
   webFullScreen: false,
   speedRate: ["0.75", "1.0", "1.25", "1.5", "2.0"], //播放倍速

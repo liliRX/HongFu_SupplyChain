@@ -62,7 +62,7 @@ $color: white;
 
 .link_container {
   position: relative;
-  //background-image: url("src/assets/img/airplane.jpg");
+  //background-image: source_url("src/assets/img/airplane.jpg");
   //background-size: cover;
   //background-repeat: no-repeat;
   //background-position: center 50%;
