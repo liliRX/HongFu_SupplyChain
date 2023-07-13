@@ -50,11 +50,12 @@ const judgeIsTop = (value) => {
 const calculatePosition = () => {
   if (window.location.pathname === "/") {
     const heightMap = routeMap.reduce((pre, i) => {
+      console.log(document.querySelector(`#${i.route}`));
       let height = document
         .querySelector(`#${i.route}`)
         .getBoundingClientRect().height;
-      console.log(isMobile.value ? 40 : rate.value * 100);
       height = height + (isMobile.value ? 40 : rate.value * 100);
+      console.log(height);
       pre.push(Math.round(height));
       return pre;
     }, []);

@@ -74,7 +74,7 @@ $paginationMobilePadding: 60px;
 $paginationMobileHeight: 80px;
 
 .history {
-  margin-top: 100px;
+  margin-top: 100px !important;
 
   > header {
     font-size: 30px;

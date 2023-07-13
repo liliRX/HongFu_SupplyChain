@@ -57,6 +57,7 @@ const goModule = (id) => {
     if (window.location.origin + "/" !== window.location.href) {
       goPage(window.location.origin);
     } else {
+      // console.log(100 * rate.value);
       let top = positionMap.value[id] - 100 * rate.value;
       window.scroll({ top, behavior: "smooth" });
     }
