@@ -28,10 +28,7 @@
         v-for="(slide, index) in swiperSlides"
       >
         <img class="slide_img" :src="slide.src" alt="" />
-        <div class="swiper_title">
-          <!--          <img :src="title" alt="" />-->
-          {{ slide.text }}
-        </div>
+        <div class="swiper_title" v-html="slide.text"></div>
       </swiper-slide>
     </swiper>
   </div>
@@ -52,16 +49,40 @@ const modules = [Autoplay, Pagination, Navigation, A11y, EffectFade];
 
 const swiperSlides = [
   {
+    src: `${source_url}/img/aboutUs.png`,
+    text: `
+        <div>
+          发展源于<span>创造价值</span>
+        </div>
+        <div class="sub_title">为客户降本增效是公司发展的驱动力</div>
+        `
+  },
+  {
     src: `${source_url}/img/home_swiper01.jpg`,
+    text: `
+        <div>
+          长久源于<span>不懈努力</span>
+        </div>
+        <div class="sub_title">始终坚持向上拼搏的精神是公司长久的保障</div>
+        `
+  },
+  {
+    src: `${source_url}/img/home_swiper02.jpg`,
+    text: `
+        <div>
+          成长源于<span>解决问题</span>
+        </div>
+        <div class="sub_title">为客户解决痛点问题是公司成长的基石</div>
+`
+  },
+  {
+    src: `${source_url}/img/home_swiper03.jpg`,
     text: `
         <div>
           壮大源于<span>众志成城</span>
         </div>
-        <div>—坚持关怀员工的理念是公司壮大的根本</div>`
-  },
-  {
-    src: `${source_url}/img/home_swiper02.jpg`,
-    text: "长久源于不懈努力—始终坚持向上拼搏的精神是公司长久的保障"
+        <div class="sub_title">坚持关怀员工的理念是公司壮大的根本</div>
+`
   }
 ];
 const init = function () {
@@ -114,7 +135,7 @@ $color: rgb(43, 121, 237);
       object-fit: cover;
       width: 100%;
       height: 100%;
-      transform: rotateY(180deg);
+      //transform: rotateY(180deg);
     }
 
     .swiper-slide {
@@ -126,7 +147,7 @@ $color: rgb(43, 121, 237);
         //}
 
         margin-left: 50px;
-        font-family: douyuFont, serif;
+        font-family: MicrosoftBlack, serif;
         position: absolute;
         z-index: 10;
         top: 50%;
@@ -134,6 +155,11 @@ $color: rgb(43, 121, 237);
         left: 0;
         color: white;
         font-size: 40px;
+
+        .sub_title {
+          margin-top: 20px;
+          font-size: 24px;
+        }
 
         span {
           color: rgba(245, 7, 7, 1);
@@ -148,7 +174,7 @@ $color: rgb(43, 121, 237);
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(235, 236, 237, 0.3);
+        background-color: rgba(40, 40, 40, 0.5);
       }
     }
 
@@ -248,7 +274,11 @@ $color: rgb(43, 121, 237);
         margin-left: 0;
         left: 4%;
         font-size: 24px;
-        line-height: 48px;
+        line-height: 30px;
+
+        .sub_title {
+          font-size: 18px;
+        }
       }
     }
 

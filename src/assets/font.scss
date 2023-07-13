@@ -20,3 +20,8 @@
   font-family: PangMen;
   src: local("PangMen"), url("#{$source-url}/font/PangMenZhengDaoBiaoTiTi-1.ttf");
 }
+
+@font-face {
+  font-family: "MicrosoftBlack";
+  src: local("PangMen"), url("#{$source-url}/font/mocrosoft black.ttf");
+}

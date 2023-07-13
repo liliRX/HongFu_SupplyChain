@@ -85,7 +85,7 @@ const setRefMap = (el, item) => {
     > .number {
       > .big-font {
         font-family: Oblique;
-        font-size: 50px;
+        font-size: 30px;
         color: rgba(252, 18, 18, 1);
         font-style: italic;
         font-weight: bold;
