@@ -58,6 +58,7 @@ const goModule = (id) => {
       goPage(window.location.origin);
     } else {
       // console.log(100 * rate.value);
+      console.log(1312);
       let top = positionMap.value[id] - 100 * rate.value;
       window.scroll({ top, behavior: "smooth" });
     }
@@ -74,14 +75,14 @@ const goModule = (id) => {
 const onHover = () => {
   headerRef.value.classList.add("hoverHeader");
   setTimeout(() => {
-    setRate();
+    setRate(1);
   }, 80);
 };
 
 const onLeave = () => {
   headerRef.value.classList.remove("hoverHeader");
   setTimeout(() => {
-    setRate();
+    setRate(2);
   }, 80);
 };
 

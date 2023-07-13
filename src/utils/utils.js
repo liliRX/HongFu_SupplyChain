@@ -3,8 +3,9 @@ import { useScaleStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 
 // 用scale做缩放比例
-export function setRate(contianer = ".body") {
-  const bodys = document.querySelectorAll(contianer);
+export function setRate(from) {
+  console.log(from);
+  const bodys = document.querySelectorAll(".body");
   const { rate } = storeToRefs(useScaleStore());
 
   bodys.forEach((body) => {

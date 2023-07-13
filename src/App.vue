@@ -9,11 +9,11 @@
 
 <script setup>
 import Layout from "@/layout/LayoutView.vue";
+import HeaderView from "@/views/HeaderView.vue";
 import { onBeforeMount, onMounted, provide, ref } from "vue";
 import { setRate, sumBeforeIndex } from "@/utils/utils.js";
 import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
-import HeaderView from "@/views/HeaderView.vue";
 import { routeMap } from "@/utils/common.js";
 
 const store = useScaleStore();
@@ -50,12 +50,10 @@ const judgeIsTop = (value) => {
 const calculatePosition = () => {
   if (window.location.pathname === "/") {
     const heightMap = routeMap.reduce((pre, i) => {
-      console.log(document.querySelector(`#${i.route}`));
       let height = document
         .querySelector(`#${i.route}`)
         .getBoundingClientRect().height;
       height = height + (isMobile.value ? 40 : rate.value * 100);
-      console.log(height);
       pre.push(Math.round(height));
       return pre;
     }, []);
