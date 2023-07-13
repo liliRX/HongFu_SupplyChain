@@ -4,6 +4,17 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // 将 Pinia 相关模块放入单独的代码块
+          pinia: ["pinia"],
+          swiper: ["swiper"]
+        }
+      }
+    }
+  },
   plugins: [vue()],
   server: {
     open: true,

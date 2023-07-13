@@ -103,7 +103,6 @@ const isMobile = inject("isMobile");
     display: flex;
     flex-wrap: wrap;
     padding: 20px 20px 0;
-    background-image: url("@/assets/img/about_num_bg.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 80%;
