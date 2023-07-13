@@ -146,13 +146,12 @@ $color: rgb(43, 121, 237);
         //  width: 70%;
         //}
 
-        margin-left: 50px;
         font-family: MicrosoftBlack, serif;
         position: absolute;
         z-index: 10;
         top: 50%;
         transform: translateY(calc(-50%));
-        left: 0;
+        left: 10%;
         color: white;
         font-size: 40px;
 
@@ -273,11 +272,11 @@ $color: rgb(43, 121, 237);
         width: 80%;
         margin-left: 0;
         left: 4%;
-        font-size: 24px;
+        font-size: 30px;
         line-height: 30px;
 
         .sub_title {
-          font-size: 18px;
+          font-size: 20px;
         }
       }
     }

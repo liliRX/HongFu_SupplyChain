@@ -1,5 +1,10 @@
 <template>
-  <div id="ECommerceCloudWarehouse">
+  <div
+    id="ECommerceCloudWarehouse"
+    :class="`ECommerceCloudWarehouse ${
+      isMobile ? 'ECommerceCloudWarehouseMobile' : ''
+    }`"
+  >
     <ScaleWrapper>
       <div class="header">
         <img class="img" :src="`${source_url}/img/ecommerce-bg.jpg`" alt="" />
@@ -109,7 +114,7 @@ const options = reactive({
 
 $sectionImgHeight: 400px;
 
-#ECommerceCloudWarehouse {
+.ECommerceCloudWarehouse {
   .header {
     height: 760px;
     position: relative;
@@ -253,6 +258,54 @@ $sectionImgHeight: 400px;
   justify-content: center;
 
   .video {
+  }
+}
+
+.ECommerceCloudWarehouseMobile {
+  .header {
+    height: 100vh;
+
+    > .p1 {
+      font-size: 36px;
+    }
+
+    > .p2 {
+      font-size: 24px;
+      letter-spacing: 5px;
+    }
+  }
+
+  .intro {
+    overflow: scroll;
+
+    .subtitle {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .intro_img {
+      border: 1px solid red;
+      overflow: auto !important;
+
+      > img {
+        height: 200px;
+        width: 1000px;
+      }
+
+      > .grid-container {
+        margin-top: 20px !important;
+        flex-direction: column !important;
+
+        .left {
+          height: 300px !important;
+        }
+
+        .right {
+          height: 320px !important;
+          grid-gap: 10px !important;
+        }
+      }
+    }
   }
 }
 </style>
