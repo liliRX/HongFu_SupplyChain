@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="intro_video">
-          <p class="subtitle">仓储视频位置</p>
+          <!--          <p class="subtitle">仓储视频位置</p>-->
         </div>
       </div>
     </ScaleWrapper>
@@ -247,7 +247,7 @@ $sectionImgHeight: 400px;
   }
 
   .intro_video {
-    margin-top: 60px;
+    margin-top: 30px;
     overflow: hidden;
   }
 }

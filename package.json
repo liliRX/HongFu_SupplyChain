@@ -8,8 +8,8 @@
     "start": "npm run generate-sass-variables local && vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build_test": "set UPLOAD=true && npm run build && node upload.cjs test",
-    "build_product": "npm run build && node upload.cjs product",
+    "build_test": "npm run generate-sass-variables  && set UPLOAD=true && npm run build && node upload.cjs test",
+    "build_product": "npm run generate-sass-variables && npm run build && node upload.cjs product",
     "postImg": "node upload.cjs img"
   },
   "dependencies": {

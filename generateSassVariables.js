@@ -17,7 +17,7 @@ function getSourceURL() {
   } else if (nav === "test") {
     return "http://192.168.222.232:8002/static_resource_file/hongfu_official_website/";
   } else {
-    return "http://192.168.222.232:8002/static_resource_file/hongfu_official_website/";
+    return "http://122.233.90.4:85/static_resource/static_resource_file/hongfu_official_website/";
   }
 }
 

@@ -53,6 +53,7 @@ const calculatePosition = () => {
       let height = document
         .querySelector(`#${i.route}`)
         .getBoundingClientRect().height;
+      console.log(isMobile.value ? 40 : rate.value * 100);
       height = height + (isMobile.value ? 40 : rate.value * 100);
       pre.push(Math.round(height));
       return pre;
