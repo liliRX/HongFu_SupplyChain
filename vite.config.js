@@ -10,7 +10,8 @@ export default defineConfig({
         manualChunks: {
           // 将 Pinia 相关模块放入单独的代码块
           pinia: ["pinia"],
-          swiper: ["swiper"]
+          swiper: ["swiper"],
+          vue3VideoPlay: ["vue3-video-play"]
         }
       }
     }
