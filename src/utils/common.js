@@ -1,7 +1,7 @@
 export const source_url =
-  window.location.href.indexOf("192.168.222.232") > 0
-    ? "http://192.168.222.232:8002/static_resource_file/hongfu_official_website"
-    : "http://122.233.90.4:85/static_resource/static_resource_file/hongfu_official_website/";
+  window.location.href.indexOf("122.233.90.4") > 0
+    ? "http://122.233.90.4:85/static_resource/static_resource_file/hongfu_official_website/"
+    : "http://192.168.222.232:8002/static_resource_file/hongfu_official_website";
 
 //定义动画字体的数据
 /* jshint esversion: 6 */

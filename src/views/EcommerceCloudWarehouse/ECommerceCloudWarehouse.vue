@@ -16,7 +16,9 @@
       <div class="intro">
         <div class="intro_img">
           <p class="subtitle">仓配一体化服务</p>
-          <img :src="`${source_url}/img/process.png`" alt="仓配流程图" />
+          <div class="img_contianer">
+            <img :src="`${source_url}/img/process.png`" alt="仓配流程图" />
+          </div>
         </div>
         <div class="grid-container">
           <div class="left">
@@ -43,7 +45,7 @@
         </div>
       </div>
     </ScaleWrapper>
-    <div class="video_container">
+    <div class="video_container" v-if="!isMobile">
       <div class="video">
         <videoPlay v-bind="options" />
       </div>
@@ -171,7 +173,7 @@ $sectionImgHeight: 400px;
     margin: 50px auto 0;
 
     .intro_img {
-      > img {
+      img {
         width: 100%;
         height: 300px;
       }
@@ -256,9 +258,6 @@ $sectionImgHeight: 400px;
   padding-bottom: 20px;
   display: flex;
   justify-content: center;
-
-  .video {
-  }
 }
 
 .ECommerceCloudWarehouseMobile {
@@ -284,25 +283,39 @@ $sectionImgHeight: 400px;
     }
 
     .intro_img {
-      overflow: scroll;
+      .img_contianer {
+        width: 95%;
+        margin: 20px auto 0;
+        overflow: scroll;
 
-      > img {
-        border: 1px solid red;
+        img {
+          height: 200px;
+          width: 1000px;
+          max-width: initial;
+        }
+      }
+    }
+
+    .grid-container {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+
+      .left {
         height: 200px;
-        width: 100px;
+
+        .image-container {
+          width: 100%;
+          height: 100%;
+        }
       }
 
-      > .grid-container {
-        margin-top: 20px !important;
-        flex-direction: column !important;
+      .right {
+        height: inherit;
+        grid-gap: 10px;
 
-        .left {
-          height: 300px !important;
-        }
-
-        .right {
-          height: 320px !important;
-          grid-gap: 10px !important;
+        .image-item {
+          height: 120px;
         }
       }
     }
