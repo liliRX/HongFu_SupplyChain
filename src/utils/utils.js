@@ -3,8 +3,7 @@ import { useScaleStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
 
 // 用scale做缩放比例
-export function setRate(from) {
-  console.log(from);
+export function setRate() {
   const bodys = document.querySelectorAll(".body");
   const { rate } = storeToRefs(useScaleStore());
 
@@ -23,7 +22,7 @@ export function setRate(from) {
 // 防抖
 export function debounce(fn, wait) {
   let timeout = null;
-  return function () {
+  return function() {
     if (timeout !== null) clearTimeout(timeout);
     timeout = setTimeout(fn, wait);
   };

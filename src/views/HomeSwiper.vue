@@ -272,7 +272,7 @@ $color: rgb(43, 121, 237);
         width: 80%;
         margin-left: 0;
         left: 4%;
-        font-size: 30px;
+        font-size: 35px;
         line-height: 30px;
 
         .sub_title {

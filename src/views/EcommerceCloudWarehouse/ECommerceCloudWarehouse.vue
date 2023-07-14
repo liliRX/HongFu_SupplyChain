@@ -276,7 +276,7 @@ $sectionImgHeight: 400px;
   }
 
   .intro {
-    overflow: scroll;
+    width: 100vw;
 
     .subtitle {
       margin-bottom: 10px;
@@ -284,12 +284,12 @@ $sectionImgHeight: 400px;
     }
 
     .intro_img {
-      border: 1px solid red;
-      overflow: auto !important;
+      overflow: scroll;
 
       > img {
+        border: 1px solid red;
         height: 200px;
-        width: 1000px;
+        width: 100px;
       }
 
       > .grid-container {

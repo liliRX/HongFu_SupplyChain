@@ -10,18 +10,14 @@
 <script setup>
 import Layout from "@/layout/LayoutView.vue";
 import HeaderView from "@/views/HeaderView.vue";
-import { onBeforeMount, onMounted, provide, ref } from "vue";
-import { setRate, sumBeforeIndex } from "@/utils/utils.js";
+import { onBeforeMount, provide, ref } from "vue";
 import { useScaleStore, usePositionStore } from "@/store/scalerate_store.js";
 import { storeToRefs } from "pinia";
-import { routeMap } from "@/utils/common.js";
 
 const store = useScaleStore();
-const { isMobile, rate } = storeToRefs(store);
+const { isMobile } = storeToRefs(store);
+const { setIsMobile } = store;
 provide("isMobile", isMobile);
-const positionStore = usePositionStore();
-const { setScaleRate, setIsMobile } = store;
-const { setPosition } = positionStore;
 const headerActive = ref(false);
 
 onBeforeMount(() => {
@@ -45,41 +41,6 @@ const searchEquipment = () => {
 const judgeIsTop = (value) => {
   headerActive.value = value;
 };
-
-// 计算位置
-const calculatePosition = () => {
-  if (window.location.pathname === "/") {
-    const heightMap = routeMap.reduce((pre, i) => {
-      let height = document
-        .querySelector(`#${i.route}`)
-        .getBoundingClientRect().height;
-      height = height + (isMobile.value ? 40 : rate.value * 100);
-      pre.push(Math.round(height));
-      return pre;
-    }, []);
-    const positionMap = routeMap.reduce((pre, i, currentIndex) => {
-      pre[i.route] = sumBeforeIndex(heightMap, currentIndex);
-      return pre;
-    }, {});
-    setPosition(positionMap);
-  }
-};
-
-// 设置缩放比
-const setScale = () => {
-  setScaleRate(document.body.clientWidth / 1584);
-  setRate();
-  calculatePosition();
-};
-
-onMounted(() => {
-  setScale();
-
-  window.addEventListener("resize", function () {
-    searchEquipment();
-    setScale();
-  });
-});
 </script>
 
 <style lang="scss" scoped>
