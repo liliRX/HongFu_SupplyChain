@@ -28,8 +28,8 @@ const config = {
     password: "Nicehzvm@232"
   },
   product: {
-    host: "192.168.222.219",
-    password: "Nicehzvm@219"
+    host: "112.124.6.142",
+    password: "HFabc123!"
   },
   img: {
     dir: "src/assets/", // 需要上传文件的目录

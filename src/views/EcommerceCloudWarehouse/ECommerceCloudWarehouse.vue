@@ -68,10 +68,12 @@ const { isMobile, rate } = storeToRefs(store);
 
 // 设置视频的宽高比
 const setVideo = () => {
-  const video = document.querySelector(".video");
-  video.style.height = 500 * rate.value + "px";
-  video.style.width = 1320 * rate.value + "px";
-  window.scrollTo(0, 0);
+  if (!isMobile) {
+    const video = document.querySelector(".video");
+    video.style.height = 500 * rate.value + "px";
+    video.style.width = 1320 * rate.value + "px";
+    window.scrollTo(0, 0);
+  }
 };
 
 onMounted(() => {
@@ -289,8 +291,8 @@ $sectionImgHeight: 400px;
         overflow: scroll;
 
         img {
-          height: 200px;
-          width: 1000px;
+          height: 150px;
+          width: 100%;
           max-width: initial;
         }
       }
